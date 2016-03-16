@@ -1,0 +1,268 @@
+<div id="v02030" class="v02030">
+    <!-- 地图 -->
+    <div id="v02030_map" class="v02030_map"></div>
+    <!-- 天气 -->
+    <div id="v02030_weather" class="v02030_weather" style="display: none">
+        <div id="v02030_weather_title">天气信息</div>
+        <div id="v02030_weather_info">
+            <div id="v02030_weather_info1">最大风速<span id="v02030_weather_info1_val" class="v02030_weather_info_s1"></span></div>
+            <div id="v02030_weather_info2">中心气压<span id="v02030_weather_info2_val" class="v02030_weather_info_s1"></span></div>
+            <div id="v02030_weather_info3">移动速度<span id="v02030_weather_info3_val" class="v02030_weather_info_s1"></span></div>
+            <div id="v02030_weather_info4">移动方向<span id="v02030_weather_info4_val" class="v02030_weather_info_s1"></span></div>
+            <div id="v02030_weather_info5">7级风圈半径<span id="v02030_weather_info5_val" class="v02030_weather_info_s2"></span></div>
+            <div id="v02030_weather_info6">10级风圈半径<span id="v02030_weather_info6_val" class="v02030_weather_info_s3"></span></div>
+        </div>
+        <div id="v02030_news_title">最新新闻</div>
+        <div id="v02030_news_info"></div>
+    </div>
+    <!-- 区县弹出按钮 -->
+    <button id="v02030_show_btn" class="v02030_show_btn">
+	    <span class="v02030_show_regionName">江西</span>
+	    <div id="v02030_region_triangle" class="v02030_region_triangle_up"></div>
+    </button>
+    <!-- 区县信息/告警流水窗 -->
+    <div id="v02030_region" class="v02030_region">
+        <div id="v02030_region_list" class="v02030_region_list">
+			<button class="v02030_region_btn"  value="江西">江西</button>
+			<button class="v02030_region_btn"  value="南昌">南昌</button>
+			<button class="v02030_region_btn"  value="九江">九江</button>
+			<button class="v02030_region_btn"  value="新余">新余</button>
+			<button class="v02030_region_btn"  value="上饶">上饶</button>
+			<button class="v02030_region_btn"  value="景德">景德镇</button>
+			<button class="v02030_region_btn"  value="萍乡">萍乡</button>
+			<button class="v02030_region_btn"  value="鹰潭">鹰潭</button>
+			<button class="v02030_region_btn"  value="赣州">赣州</button>
+			<button class="v02030_region_btn"  value="宜春">宜春</button>
+			<button class="v02030_region_btn"  value="吉安">吉安</button>
+			<button class="v02030_region_btn"  value="抚州">抚州</button>
+        </div>
+        <br>
+        <hr class="v02030_region_line"/>
+        <span class="v02030_region_countyTitle">区县</span>
+        <div id="v02030_region_county" class="v02030_region_county"></div>
+        <div id="v02030_alarm" class="v02030_alarm">
+            <div class="v02030_alarm_title">告警流水工单</div>
+            <div class="v02030_alarm_content"></div>
+        </div>
+    </div>
+    
+    <!-- 基站选择 -->
+    <div id="v02030_bts" class="v02030_bts">
+        <button id="v02030_btn" class="btn1"><div class="triangle-up"></div></button>
+        <div id="v02030_content" class="content">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="checkbox1" value="GSM基站退服" data-sql="s02030_gsmBtsOutInfo"  class="hidden-input"><label for="checkbox1"></label>
+                                    <img  src="assets/images/app2/v02031_1.png">
+                                    <span>GSM基站退服</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox2" value="TD基站退服" data-sql="s02030_tdBtsOutInfo" class="hidden-input"><label for="checkbox2"></label>
+                                    <img src="assets/images/app2/v02031_2.png">
+                                    <span>TD基站退服</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox3" value="LTE基站退服" data-sql="s02030_lteBtsOutInfo" class="hidden-input"><label for="checkbox3"></label>
+                                    <img src="assets/images/app2/v02031_3.png">
+                                    <span>LTE基站退服</span>
+                                    <span>(0)</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="checkbox4" value="GSM小区退服" data-sql="s02030_gsmCellOutInfo" class="hidden-input"><label for="checkbox4"></label>
+                                    <img src="assets/images/app2/v02031_4.png">
+                                    <span>GSM小区退服</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox5" value="TD小区退服"  data-sql="s02030_tdCellOutInfo" class="hidden-input"><label for="checkbox5"></label>
+                                    <img src="assets/images/app2/v02031_5.png">
+                                    <span>TD小区退服</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox6" value="LTE小区退服"  data-sql="s02030_lteCellOutInfo" class="hidden-input"><label for="checkbox6"></label>
+                                    <img src="assets/images/app2/v02031_6.png">
+                                     <span>LTE小区退服</span>
+                                     <span>(0)</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="checkbox7" value="应急通讯车位置"  data-sql="s02030_alarmCarInfo" class="hidden-input"><label for="checkbox7"></label>
+                                    <img src="assets/images/app2/v02031_7.png">
+                                    <span>应急通讯车位置</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox8" value="卫星通讯车位置"  data-sql="s02030_satelliteCarInfo"  class="hidden-input"><label for="checkbox8"></label>
+                                    <img src="assets/images/app2/v02031_8.png">
+                                    <span>卫星通讯车位置</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox9" value="超级基站位置"  data-sql="s02030_superBtsInfo" class="hidden-input"><label for="checkbox9"></label>
+                                    <img src="assets/images/app2/v02031_9.png">
+                                     <span>超级基站位置</span>
+                                     <span>(0)</span>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="checkbox10" value="党政军基站退服(2G)"  data-sql="s02030_gsmGovInfo"  class="hidden-input"><label for="checkbox10"></label>
+                                    <img src="assets/images/app2/v02031_10.png">
+                                    <span>党政军基站退服(2G)</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox11" value="党政军基站退服(3G)"  data-sql="s02030_tdGovInfo"  class="hidden-input"><label for="checkbox11"></label>
+                                    <img src="assets/images/app2/v02031_11.png">
+                                    <span>党政军基站退服(3G)</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox12" value="党政军基站退服(4G)"  data-sql="s02030_lteGovInfo" class="hidden-input"><label for="checkbox12"></label>
+                                    <img src="assets/images/app2/v02031_12.png">
+                                     <span>党政军基站退服(4G)</span>
+                                     <span>(0)</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="checkbox13" value="G网劣化小区"  data-sql="s02030_gsmBadCellInfo"  class="hidden-input"><label for="checkbox13"></label>
+                                    <img src="assets/images/app2/v02031_13.png">
+                                    <span>G网劣化小区</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox14" value="T网劣化小区"  data-sql="s02030_tdBadCellInfo"  class="hidden-input"><label for="checkbox14"></label>
+                                    <img src="assets/images/app2/v02031_14.png">
+                                    <span>T网劣化小区</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox15" value="L网劣化小区" data-sql="s02030_lteBadCellInfo"  class="hidden-input"><label for="checkbox15"></label>
+                                    <img src="assets/images/app2/v02031_15.png">
+                                     <span>L网劣化小区</span>
+                                     <span>(0)</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="checkbox16" value="G网小区" data-sql="s02030_gsmCellInfo" data-select="0"  class="hidden-input"><label for="checkbox16"></label>
+                                    <img src="assets/images/app2/v02031_16.png">
+                                    <span>G网小区</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox17" value="T网小区"  data-sql="s02030_tdCellInfo" data-select="0"  class="hidden-input"><label for="checkbox17"></label>
+                                    <img src="assets/images/app2/v02031_17.png">
+                                    <span>T网小区</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox18" value="L网小区"  data-sql="s02030_lteCellInfo" data-select="0" data-area="true" class="hidden-input"><label for="checkbox18"></label>
+                                    <img src="assets/images/app2/v02031_18.png">
+                                     <span>L网小区</span>
+                                     <span>(0)</span>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="checkbox19" value="VVIP基站退服(2G)" data-sql="s02030_gsmVvipInfo"  class="hidden-input"><label for="checkbox19"></label>
+                                    <img src="assets/images/app2/v02031_19.png">
+                                    <span>VVIP基站退服(2G)</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox20" value="VVIP基站退服(3G)" data-sql="s02030_tdVvipInfo"  class="hidden-input"><label for="checkbox20"></label>
+                                    <img src="assets/images/app2/v02031_20.png">
+                                    <span>VVIP基站退服(3G)</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox21" value="VVIP基站退服(4G)" data-sql="s02030_lteVvipInfo"  class="hidden-input"><label for="checkbox21"></label>
+                                    <img src="assets/images/app2/v02031_21.png">
+                                     <span>VVIP基站退服(4G)</span>
+                                     <span>(0)</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="checkbox22" value="光缆中断" data-sql="s02030_cabBreakInfo"  class="hidden-input"><label for="checkbox22"></label>
+                                    <img src="assets/images/app2/v02031_22.png">
+                                    <span>光缆中断</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox23" value="停电基站" data-sql="s02030_powercutInfo"  class="hidden-input"><label for="checkbox23"></label>
+                                    <img src="assets/images/app2/v02031_23.png">
+                                    <span>停电基站</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox24" value="油机发电基站" data-sql="s02030_generationInfo"  class="hidden-input"><label for="checkbox24"></label>
+                                    <img src="assets/images/app2/v02031_24.png">
+                                    <span>油机发电基站</span>
+                                    <span>(0)</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="checkbox25" value="GSM基站" data-sql="s02030_gsmBtsInfo" data-select="1" class="hidden-input"><label for="checkbox25"></label>
+                                    <img src="assets/images/app2/v02031_25.png">
+                                    <span>GSM基站</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox26" value="TD基站"  data-sql="s02030_tdBtsInfo" data-select="1" class="hidden-input"><label for="checkbox26"></label>
+                                    <img src="assets/images/app2/v02031_26.png">
+                                    <span>TD基站</span>
+                                    <span>(0)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="checkbox27" value="LTE基站" data-sql="s02030_lteBtsInfo" data-select="1" class="hidden-input"><label for="checkbox27"></label>
+                                    <img src="assets/images/app2/v02031_27.png">
+                                     <span>LTE基站</span>
+                                     <span>(0)</span>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div id="v02030_select">
+      <input class="v02030_select_start" type="button" value="开始框选"></input>
+      <input class="v02030_select_clear" type="button" value="清除框选"></input>
+    </div>
+</div>

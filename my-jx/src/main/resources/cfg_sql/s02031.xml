@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql>
+    <!--查询台风信息-->
+    <item id="typhoonInfo">
+        <![CDATA[
+		select t.code, t.name_cn, t.name_en, t.valid_flag
+		  from emg_typhoon_info t
+		 where t.valid_flag = 1
+        ]]>
+    </item>
+
+    <!--查询台风路径-->
+    <item id="typhoonRoute">
+        <![CDATA[
+	       select a.typhoon_code,
+		           a.typhoon_num,
+		           a.typhoon_time_label,
+		           a.longitude,
+		           a.latitude,
+		           a.pressure,
+		           a.wind_power,
+		           a.wind_speed,
+		           a.move_direction,
+		           a.radius7,
+		           a.radius10,
+		           a.status,
+		           a.forecast_country
+		      from EMG_TYPHOON_ROUTE a, EMG_TYPHOON_INFO b
+		     where b.valid_flag = 1
+		       and b.code = a.typhoon_code
+		       and a.status = ${status}
+		     order by typhoon_num
+        ]]>
+    </item>
+    
+    <!--查询中国预报台风路径-->
+    <item id="forcastTyphoonRoute">
+        <![CDATA[
+           select a.typhoon_code,
+                   a.typhoon_num,
+                   a.typhoon_time_label,
+                   a.longitude,
+                   a.latitude,
+                   a.pressure,
+                   a.wind_power,
+                   a.wind_speed,
+                   a.move_direction,
+                   a.radius7,
+                   a.radius10,
+                   a.status,
+                   a.forecast_country
+              from EMG_TYPHOON_ROUTE a, EMG_TYPHOON_INFO b
+             where b.valid_flag = 1
+               and b.code = a.typhoon_code
+               and a.status = 2
+               and a.forecast_country = '中国'
+             order by typhoon_num
+        ]]>
+    </item>
+</sql>

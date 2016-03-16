@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql>
+    <!--234G用户数、234G累计用户数、VOLTE当前活跃用户数、VOLTE累计接通时长、宽带活跃用户数、宽带累计用户数-->
+    <item id="user">
+        <![CDATA[
+	select to_char(start_time, 'dd"日" hh24"时"mi"分"') start_time,
+	       gsm_user_num,
+	       td_user_num,
+	       lte_user_num,
+	       gsm_adduser_num,
+	       td_adduser_num,
+	       lte_adduser_num,
+	       volte_user_num,
+	       volte_succ_num,
+	       broadband_user_num,
+	       broadband_adduser_num,
+	       wlan_user_num,
+	       hitv_user_num,
+	       volte_user_num / 500 - 1 volte_user_rate,
+           gsm_user_num / 500 - 1 gsm_user_rate,
+           td_user_num / 500 - 1 td_user_rate,
+           lte_user_num / 500 - 1 lte_user_rate,
+           broadband_user_num / 500 - 1 broadband_user_rate
+	  from pro_user
+	 where start_time = (select max(start_time) from pro_user)         
+        ]]>
+    </item>
+
+    <!--23G话务量-->
+    <item id="traf">
+        <![CDATA[
+			select a.start_time, b.gsm_traf_num, b.td_traf_num
+			  from (select to_char(trunc(sysdate) + rownum / 24, 'hh24') start_time
+			          from dual
+			        connect by rownum < 25) a,
+			       (select to_char(start_time, 'hh24') start_time,
+			               start_time sort_time,
+			               gsm_traf_num,
+			               td_traf_num
+			          from pro_traf
+			         where start_time >= trunc(sysdate)
+			         order by sort_time) b
+			 where a.start_time = b.start_time(+)
+			 order by a.start_time
+        ]]>
+    </item>
+
+    <!--23G累计话务量-->
+    <item id="trafAdd">
+        <![CDATA[
+	select gsm_addtraf_num, td_addtraf_num
+	  from pro_traf
+	 where start_time = (select max(start_time) from pro_traf)
+        ]]>
+    </item>
+    
+    <!--234G流量-->
+    <item id="flow">
+        <![CDATA[
+	select to_char(start_time, 'hh24') start_time,
+	       start_time sort_time,
+	       gsm_flow_num,
+	       td_flow_num,
+	       lte_flow_num
+	  from pro_flow
+	 where start_time > (select max(start_time) - 1 from pro_flow)
+	 order by sort_time
+        ]]>
+    </item>
+
+    <!--234G累计流量-->
+    <item id="flowAdd">
+        <![CDATA[
+	select gsm_addflow_num, td_addflow_num, lte_addflow_num
+	  from pro_flow
+	 where start_time = (select max(start_time) from pro_flow)
+        ]]>
+    </item>
+
+    <!--瞬时短信-->
+    <item id="sms">
+        <![CDATA[
+		select to_char(start_time, 'hh24') start_time,
+		       start_time sort_time,
+		       moment_sms_num
+		  from pro_sms
+		 where start_time > (select max(start_time) - 1 from pro_sms)
+		 order by sort_time
+        ]]>
+    </item>
+    
+    <!--瞬时短信较日常和累计短信-->
+    <item id="smsAdd">
+        <![CDATA[
+	select moment_sms_num / 500 - 1 moment_sms_rate, accu_sms_num
+	  from pro_sms
+	 where start_time = (select max(start_time) from pro_sms)
+        ]]>
+    </item>
+    
+    <!--瞬时短信峰值-->
+    <item id="smsMax">
+        <![CDATA[
+    select max(moment_sms_num) max
+      from pro_sms
+     where start_time > (select max(start_time) - 1 from pro_sms)
+        ]]>
+    </item>
+</sql>

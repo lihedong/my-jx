@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>app1</title>
+        <link rel="stylesheet" href="css/ips.css"/>
+        <link rel="stylesheet" href="css/app1.css"/>
+        <script src="js-lib/jquery/jquery-2.1.4.min.js"></script>
+        <script src="js-lib/sockjs/sockjs-1.0.3.min.js"></script>
+        <script src="js-lib/stomp/stomp.min.js"></script>
+        <script src="js-app/ips.js"></script>
+        <script src="js-app/demo.js"></script>
+    </head>
+    <body>
+        <div>
+            <input id="inputPubData" type="text" value="r0001" style="width:100px;" />
+            <button onclick="pubdata()">publish data</button>
+            
+            <input id="inputPubView" type="text" value="v0001" style="width:100px;" />
+            <button onclick="pubview()">publish view</button>
+            
+            <input id="inputSubData" type="text" value="r0001" style="width:100px;" />
+            <button onclick="subdata()">subscribe data</button>
+            
+            <input id="inputSubView" type="text" value="v0001" style="width:100px;" />
+            <button onclick="subview()">subscribe view</button>
+            
+            <button onclick="queryData()">query data</button>
+            
+            <button onclick="updateData()">update data</button>
+            
+            <button onclick="queryView()">query view</button>
+            
+            <button onclick="handleData()">handle data</button>
+            
+            <button onclick="handleView()">handle view</button>
+        </div>
+         
+        <textarea id="txtdata" style="border:1px solid #000; margin-top:10px; width:1200px; height:280px;"></textarea>
+        
+        <textarea id="txtview" style="border:1px solid #000; margin-top:10px; width:1200px; height:280px;"></textarea>
+        
+    </body>
+</html>

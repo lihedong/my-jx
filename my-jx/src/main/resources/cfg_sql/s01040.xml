@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql>
+    <!--下载速率大包(>500K)、响应时延、CSFB回落时延(南昌)、VOLTE接通时延(VOLTE TO VOLTE)-->
+    <item id="quality">
+        <![CDATA[
+		select to_char(start_time, 'dd"日" hh24"时"mi"分"') start_time,
+		       download_rate,
+		       csfb_delay_time,
+		       volte_succ_num
+		  from pro_busi_quality
+		 where start_time = (select max(start_time) from pro_busi_quality)
+        ]]>
+    </item>
+
+    <!--用户数、流量、下载速率、响应时延-->
+    <item id="indicator">
+        <![CDATA[
+	select a.type_id       type_id,
+	       a.type_name     type_name,
+	       b.user_num      user_num,
+	       b.flow_num      flow_num,
+	       b.download_rate download_rate,
+	       b.delay_time    delay_time
+	  from pro_indicator_config a, pro_indicator b
+	 where a.type_id = b.type_id
+	   and b.start_time = (select max(start_time) from pro_indicator)
+	   and a.type_id = '${type_id}'
+        ]]>
+    </item>
+    
+    <!--用户数、流量、下载速率、响应时延细分指标-->
+    <item id="indicatorDetail">
+        <![CDATA[
+	select a.type_id       type_id,
+	       b.type_name     type_name,
+	       b.user_num      user_num,
+	       b.flow_num      flow_num,
+	       b.download_rate download_rate,
+	       b.delay_time    delay_time
+	  from pro_indicator_config a, pro_indicator_detail b
+	 where a.type_id = b.type_id
+	   and b.start_time = (select max(start_time) from pro_indicator_detail)
+	   and a.type_id = '${type_id}'
+        ]]>
+    </item>
+</sql>

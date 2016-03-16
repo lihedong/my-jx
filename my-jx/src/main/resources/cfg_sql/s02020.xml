@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sql>
+    <!-- 短信当前值、上周值、环比增幅-->
+    <item id="mms">
+    	<![CDATA[
+   		select to_char(t1.start_time, 'dd"日" hh24"时"mi"分"') start_time,
+	       t1.mms_num now_num,
+	       t2.mms_num last_week_num,
+	       ROUND((t1.mms_num - t2.mms_num) / t2.mms_num, 2) comp_rate
+	  from (select t.start_time, t.mms_num
+	          from EMG_MMS t
+	         where t.start_time = (select max(start_time) from EMG_MMS)) t1,
+	       (select t.start_time, t.mms_num
+	          from EMG_MMS t
+	         where t.start_time = (select max(start_time) - 7 from EMG_MMS)) t2
+    	]]>
+    </item>
+    
+    <!-- 短信柱状图-->
+    <item id="mmsChart">
+        <![CDATA[
+        select t.start_time, to_char(t.start_time, 'hh24') sort_time, t.mms_num
+		  from EMG_MMS t
+		 where t.start_time > (select max(start_time) - 7 / 24 from EMG_MMS)
+		 order by start_time
+        ]]>
+    </item>
+    
+    <!-- 话务量当前值、上周值、环比增幅-->
+    <item id="telTraffic">
+        <![CDATA[
+        select to_char(t1.start_time, 'dd"日" hh24"时"mi"分"') start_time,
+		       t1.tel_traf_num now_num,
+		       t2.tel_traf_num last_week_num,
+		       ROUND((t1.tel_traf_num - t2.tel_traf_num) / t2.tel_traf_num, 2) comp_rate
+		  from (select t.start_time, t.tel_traf_num
+		          from EMG_TEL_TRAFFIC t
+		         where t.region_id = ${region_id}
+		           and t.start_time = (select max(start_time)
+		                                 from EMG_TEL_TRAFFIC
+		                                where region_id = ${region_id})) t1,
+		       (select t.start_time, t.tel_traf_num
+		          from EMG_TEL_TRAFFIC t
+		         where t.region_id = ${region_id}
+		           and t.start_time = (select max(start_time) - 7
+		                                 from EMG_TEL_TRAFFIC
+		                                where region_id = ${region_id})) t2
+        ]]>
+    </item>
+    
+    <!-- 话务量柱状图-->
+    <item id="telTrafficChart">
+        <![CDATA[
+        select t.start_time,
+		       to_char(t.start_time, 'hh24') sort_time,
+		       t.tel_traf_num
+		  from EMG_TEL_TRAFFIC t
+		 where t.region_id = ${region_id}
+		   and t.start_time > (select max(start_time) - 7 / 24
+		                         from EMG_TEL_TRAFFIC
+		                        where region_id = ${region_id})
+		 order by start_time
+        ]]>
+    </item>
+    
+    <!-- lte流量当前值、上周值、环比增幅-->
+    <item id="lteFlow">
+        <![CDATA[
+        select to_char(t1.start_time, 'dd"日" hh24"时"mi"分"') start_time,
+		       t1.lte_flow_num now_num,
+		       t2.lte_flow_num last_week_num,
+		       ROUND((t1.lte_flow_num - t2.lte_flow_num) / t2.lte_flow_num, 2) comp_rate
+		  from (select t.start_time, t.lte_flow_num
+		          from EMG_LTE_FLOW t
+		         where t.region_id = ${region_id}
+		           and t.start_time = (select max(start_time)
+		                                 from EMG_LTE_FLOW
+		                                where region_id = ${region_id})) t1,
+		       (select t.start_time, t.lte_flow_num
+		          from EMG_LTE_FLOW t
+		         where t.region_id = ${region_id}
+		           and t.start_time = (select max(start_time) - 7
+		                                 from EMG_LTE_FLOW
+		                                where region_id = ${region_id})) t2
+
+        ]]>
+    </item>
+    
+    <!-- lte流量柱状图-->
+    <item id="lteFlowChart">
+        <![CDATA[
+        select t.start_time,
+               to_char(t.start_time, 'hh24') sort_time,
+               t.lte_flow_num
+          from EMG_LTE_FLOW t
+         where t.region_id = ${region_id}
+           and t.start_time > (select max(start_time) - 7 / 24
+                                 from EMG_LTE_FLOW
+                                where region_id = ${region_id})
+         order by start_time
+        ]]>
+    </item>
+    
+    <!-- 长途话务量当前值、上周值、环比增幅-->
+    <item id="tollTraf">
+        <![CDATA[
+        select to_char(t1.start_time, 'dd"日" hh24"时"mi"分"') start_time,
+		       t1.toll_traf_num now_num,
+		       t2.toll_traf_num last_week_num,
+		       ROUND((t1.toll_traf_num - t2.toll_traf_num) / t2.toll_traf_num, 2) comp_rate
+		  from (select t.start_time, t.toll_traf_num
+		          from EMG_TOLL_TRAFFIC t
+		         where t.region_id = ${region_id}
+		           and t.start_time = (select max(start_time)
+		                                 from EMG_TOLL_TRAFFIC
+		                                where region_id = ${region_id})) t1,
+		       (select t.start_time, t.toll_traf_num
+		          from EMG_TOLL_TRAFFIC t
+		         where t.region_id = ${region_id}
+		           and t.start_time = (select max(start_time) - 7
+		                                 from EMG_TOLL_TRAFFIC
+		                                where region_id = ${region_id})) t2
+
+        ]]>
+    </item>
+    
+    <!-- 长途话务量柱状图-->
+    <item id="tollTrafChart">
+        <![CDATA[
+        select t.start_time,
+               to_char(t.start_time, 'hh24') sort_time,
+               t.toll_traf_num
+          from EMG_TOLL_TRAFFIC t
+         where t.region_id = ${region_id}
+           and t.start_time > (select max(start_time) - 7 / 24
+                                 from EMG_TOLL_TRAFFIC
+                                where region_id = ${region_id})
+         order by start_time
+        ]]>
+    </item>
+    
+     <!-- 分组域流量当前值、上周值、环比增幅-->
+    <item id="groupFlow">
+        <![CDATA[
+        select to_char(t1.start_time, 'dd"日" hh24"时"mi"分"') start_time,
+		       t1.group_flow_num now_num,
+		       t2.group_flow_num last_week_num,
+		       ROUND((t1.group_flow_num - t2.group_flow_num) / t2.group_flow_num, 2) comp_rate
+		  from (select t.start_time, t.group_flow_num
+		          from EMG_GROUP_FLOW t
+		         where t.region_id = ${region_id}
+		           and t.start_time = (select max(start_time)
+		                                 from EMG_GROUP_FLOW
+		                                where region_id = ${region_id})) t1,
+		       (select t.start_time, t.group_flow_num
+		          from EMG_GROUP_FLOW t
+		         where t.region_id = ${region_id}
+		           and t.start_time = (select max(start_time) - 7
+		                                 from EMG_GROUP_FLOW
+		                                where region_id = ${region_id})) t2
+        ]]>
+    </item>
+    
+    <!-- 分组域流量柱状图-->
+    <item id="groupFlowChart">
+        <![CDATA[
+        select t.start_time,
+               to_char(t.start_time, 'hh24') sort_time,
+               t.group_flow_num
+          from EMG_GROUP_FLOW t
+         where t.region_id = ${region_id}
+           and t.start_time > (select max(start_time) - 7 / 24
+                                 from EMG_GROUP_FLOW
+                                where region_id = ${region_id})
+         order by start_time
+        ]]>
+    </item>
+</sql>

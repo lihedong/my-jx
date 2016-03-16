@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sql>
+    <!-- 应急资源 -->
+    <item id="emergencyRes">
+    	<![CDATA[
+   		select to_char(t.start_time, 'dd"日"hh24"时"') start_time,
+		       t.res_type,
+		       t.res_inuse,
+		       t.res_free,
+		       t.res_total
+		  from EMG_EMERGENCY_RES t
+		 where t.region_id = ${region_id}
+		   and t.start_time = (select max(start_time)
+		                         from EMG_EMERGENCY_RES a
+		                        where a.region_id = ${region_id})
+    	]]>
+    </item>
+    
+    <!-- 网络投诉量-->
+    <item id="networkComplain">
+        <![CDATA[
+		select to_char(t.start_time, 'dd"日"hh24"时"') start_time,
+		       t.ne_type,
+		       t.complain_num
+		  from EMG_NETWORK_COMPLAIN t
+		 where t.region_id = ${region_id}
+		   and t.start_time = (select max(start_time)
+		                         from EMG_NETWORK_COMPLAIN a
+		                        where a.region_id = ${region_id})
+        ]]>
+    </item>
+    
+    <!-- 网络投诉量最近24小时chart图-->
+    <item id="netCompDetail">
+        <![CDATA[
+		with t as
+		 (select a.*, rownum row_num
+		    from (select t.start_time,
+		                 to_char(t.start_time, 'hh24') sort_time,
+		                 t.complain_num
+		            from EMG_NETWORK_COMPLAIN t
+		           where t.region_id = 100
+		             and t.ne_type = '${ne_type}'
+		             and t.start_time > (select max(start_time) - 25 / 24
+		                                   from EMG_NETWORK_COMPLAIN a
+		                                  where a.region_id = ${region_id})
+		           order by start_time) a)
+		select t1.start_time,
+		       t2.sort_time,
+		       t1.complain_num openValue,
+		       t2.complain_num closeValue,
+		       abs(t2.complain_num - t1.complain_num) changeValue,
+		       case
+		         when (t2.complain_num - t1.complain_num > 0) then
+		          '#EE6CA6'
+		         else
+		          '#6CF8FC'
+		       end color
+		  from t t1, t t2
+		 where (t1.row_num = t2.row_num - 1)
+		 order by t1.row_num
+        ]]>
+    </item>
+</sql>

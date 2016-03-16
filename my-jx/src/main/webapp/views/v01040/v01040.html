@@ -1,0 +1,62 @@
+<div id="v01040">
+    <!--标题-->
+    <div class="mytitle">感知</div>
+
+    <!--下载速率大包(>500K)、响应时延、CSFB回落时延(南昌)、VOLTE接通时延(VOLTE TO VOLTE)-->
+    <div class="top4Kpi">
+        <div><span>>500k的下载速率(Mbps)</span><span><label id="v01040_bigdownload_rate"></label></span></div>
+        <div><span>CSFB回落时延(ms)</span><span><label id="v01040_csfb_delay_time"></label></span></div>
+        <div><span>VOLTE接通时延(ms)</span><span><label id="v01040_volte_succ_num"></label></span></div>
+    </div>
+
+    <!--图片滚动播放-->
+    <div class="appIcon">
+        <a href="#"><img src="assets/images/app1/v01040_1.png" name="1" /></a>
+        <a href="#"><img src="assets/images/app1/v01040_2.png" name="2" /></a>
+        <a href="#"><img src="assets/images/app1/v01040_3.png" name="3" /></a>
+        <a href="#"><img src="assets/images/app1/v01040_4.png" name="4" /></a>
+        <a href="#"><img src="assets/images/app1/v01040_5.png" name="5" /></a>
+        <a href="#"><img src="assets/images/app1/v01040_6.png" name="6" /></a>
+    </div>
+     <!--页面下半部各项指标-->
+    <div class="bottomKpi">
+        <!--用户数、流量、下载速率、响应时延-->
+        <div>
+            <div><label id="v01040_user_num_sum"></label><label id="v01040_user_label">用户数</label></div>
+            <div><label id="V01040_flow_num_sum"></label><label id="v01040_flow_label">流量<span>(GB)</span></label></div>
+            <div><label id="v01040_download_rate_sum"></label><label id="v01040_download_label">下载速率<span>(Mbps)</span></label></div>
+            <div><label id="v01040_delay_time_sum"></label><label id="v01040_delay_label">响应时延<span>(ms)</span></label></div>
+        </div>
+        <!--用户数、流量、下载速率、响应时延细分指标-->
+        <div>
+            <div>
+                <table>
+                    <tbody id="v01040_USER_NUM">
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tbody id="v01040_FLOW_NUM">
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tbody id="v01040_DOWNLOAD_RATE">
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tbody id="v01040_DELAY_TIME">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+   
+    <div class="v01040_startTimeDiv">
+          <span>截止时间:&nbsp;&nbsp;</span><span id="v01040_startTime"></span>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+body {
+	width: 4800px;
+	height: 1200px;
+	background-image: url(../../images/app1/bg.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	font-family: 'Microsoft YaHei';
+	color: #FFFFFF;
+}
+
+.ips-app {
+	width: 4800px;
+	height: 1200px;
+	position: absolute;
+}
+
+.title {
+	position: absolute;
+	font-size: 50px;
+	color: #FFFFFF;
+	top: 34px;
+	font-weight: bolder;
+	letter-spacing: 10px;
+	left: 2176px;
+}
+
+.time {
+	color: #FFFF00;
+	font-size: 25px;
+}

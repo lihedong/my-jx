@@ -1,0 +1,385 @@
+.v01010 {
+	width: 870px;
+	height: 1200px;
+}
+
+.v01010-font30 {
+	font-size: 30px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+.v01010-font25 {
+	font-size: 22px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+.v01010-font22 {
+	font-size: 22px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+.v01010-font32-yellow {
+	font-family: 'lcdnum';
+	font-size: 30px;
+	font-weight: normal;
+	color: #FFFF00;
+	height: 40px;
+	overflow: hidden;
+}
+
+.v01010-title {
+	position: absolute;
+	left: 86px;
+	top: 55px;
+	font-size: 48px;
+	width: 660px;
+	height: 80px;
+	line-height: 76px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.v01010-bts-tf {
+	position: absolute;
+	left: 75px;
+	top: 150px;
+	width: 680px;
+	height: 235px;
+}
+
+.v01010-btstf-title {
+	position: absolute;
+	top: 11px;
+	width: 680px;
+	text-align: center;
+}
+
+.v01010-2g {
+	position: absolute;
+	top: 93px;
+	left: 35px;
+}
+
+.v01010-2g-value {
+	position: absolute;
+	top: 88px;
+	left: 96px;
+	width: 120px;
+	text-align: center;
+}
+
+.v01010-3g {
+	position: absolute;
+    top: 93px;
+    left: 259px;
+}
+
+.v01010-3g-value {
+	position: absolute;
+	top: 88px;
+	left: 319px;
+	width: 120px;
+	text-align: center;
+}
+
+.v01010-4g {
+	position: absolute;
+	top: 93px;
+	left: 482px;
+}
+
+.v01010-4g-value {
+	position: absolute;
+	top: 88px;
+	left: 541px;
+	width: 120px;
+	text-align: center;
+}
+
+.v01010-td {
+	position: absolute;
+	top: 179px;
+	left: 15px;
+	letter-spacing: 3px;
+}
+
+.v01010-td-value {
+	position: absolute;
+	top: 175px;
+	left: 168px;
+	width: 160px;
+	text-align: center;
+}
+
+.v01010-zd {
+	position: absolute;
+	top: 179px;
+	left: 363px;
+	letter-spacing: 4px;
+}
+
+.v01010-zd-value {
+	position: absolute;
+	top: 175px;
+	left: 514px;
+	width: 160px;
+	text-align: center;
+}
+
+.v01010-margin-left {
+	position: absolute;
+	margin-left: 30px;
+}
+
+.v01010-margin-left-20 {
+	position: absolute;
+	margin-left: 20px;
+}
+
+.v01010-margin-left100 {
+	position: absolute;
+	margin-left: 105px;
+}
+
+.v01010-alarm {
+	position: absolute;
+	top: 410px;
+	left: 0px;
+	width: 820px;
+	height: 590px;
+}
+
+.v01010-alarm-remove {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 820px;
+	height: 590px;
+}
+
+.v01010-alarm-title {
+	position: absolute;
+	top: -14px;
+	width: 820px;
+	text-align: center;
+	letter-spacing: 4px;
+}
+
+.v01010-allAlarm {
+	position: absolute;
+	top: 58px;
+	width: 820px;
+	text-align: center;
+}
+
+.v01010-alarm-value-span {
+	position: absolute;
+	top: 91px;
+	width: 820px;
+	text-align: center;
+	letter-spacing: 10px;
+}
+
+.v01010-bzAlarm {
+	position: absolute;
+	top: 172px;
+	width: 820px;
+	text-align: center;
+}
+
+.v01010-bzalarm-value-span {
+	position: absolute;
+	top: 205px;
+	width: 820px;
+	text-align: center;
+	letter-spacing: 7px;
+}
+
+.v01010-font-28 {
+	font-size: 28px;
+}
+
+.v01010-font-26 {
+	font-size: 26px;
+}
+
+.v01010-font-24 {
+	font-size: 24px;
+}
+
+.v01010-font-22 {
+	font-size: 22px;
+}
+
+.v01010-fgcAlarm {
+	position: absolute;
+	top: 283px;
+	width: 820px;
+	text-align: center;
+}
+
+.v01010-fgcalarm-value-span {
+	position: absolute;
+	top: 316px;
+	width: 820px;
+	text-align: center;
+	letter-spacing: 4px;
+}
+
+.v01010-pdAlarm {
+	position: absolute;
+	top: 392px;
+	width: 820px;
+	text-align: center;
+}
+
+.v01010-pdalarm-value-span {
+	position: absolute;
+	top: 430px;
+	width: 820px;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+.v01010-ssAlarm {
+	position: absolute;
+	top: 507px;
+	width: 820px;
+	text-align: center;
+}
+
+.v01010-ssalarm-value-span {
+	position: absolute;
+	top: 549px;
+	width: 820px;
+	text-align: center;
+}
+
+.v01010-gjbz {
+	position: absolute;
+	top: 115px;
+	left: 680px;
+}
+
+.v01010-gcpb {
+	position: absolute;
+	top: 225px;
+	left: 620px;
+}
+
+.v01010-gcpb-value-span {
+	position: absolute;
+	top: 255px;
+	left: 620px;
+}
+
+.v01010-gjgl {
+	position: absolute;
+	top: 335px;
+	left: 555px;
+}
+
+.v01010-gjgl-value-span {
+	position: absolute;
+	top: 365px;
+	left: 555px;
+}
+
+.v01010-pdgz {
+	position: absolute;
+	top: 445px;
+	left: 495px;
+}
+
+.v01010-pdgz-value-span {
+	position: absolute;
+	top: 475px;
+	left: 495px;
+}
+
+.v01010-gjbz-value-span {
+	position: absolute;
+	top: 145px;
+	left: 680px;
+}
+
+.v01010-left5 {
+	position: absolute;
+	left: 5px;
+	width: 130px;
+}
+
+.v01010-workOrder {
+	position: absolute;
+	left: 75px;
+	bottom: 85px;
+	height: 80px;
+	width: 680px;
+}
+
+.v01010-T1 {
+	position: absolute;
+	left: 30px;
+	top: 0px;
+}
+
+.v01010-T1-value {
+	position: absolute;
+	left: 1px;
+	top: 35px;
+	width: 163px;
+	text-align: center;
+}
+
+.v01010-T2 {
+	position: absolute;
+	left: 205px;
+	top: 0px;
+}
+
+.v01010-T2-value {
+	position: absolute;
+	left: 173px;
+	top: 35px;
+	width: 165px;
+	text-align: center;
+}
+
+.v01010-gd {
+	position: absolute;
+	left: 359px;
+	top: 0px;
+}
+
+.v01010-gd-value {
+	position: absolute;
+    left: 346px;
+    top: 35px;
+    width: 163px;
+    text-align: center;
+}
+
+.v01010-alarm-pd {
+	position: absolute;
+	left: 540px;
+	top: 0px;
+}
+
+.v01010-alarm-pd-value {
+	position: absolute;
+    left: 517px;
+    top: 35px;
+    width: 166px;
+    text-align: center;
+}
+
+.v01010_startTimeDiv {
+	position: absolute;
+    bottom: 30px;
+    left: 290px;
+    color: #FFFF00;
+    font-size: 22px;
+}

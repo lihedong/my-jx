@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<item label="LTE流量" datasource="ips">
+	<fields>
+		<field name="start_time" label="开始时间" />
+		<field name="lte_traf" label="LTE流量" unit="GB"/>
+	</fields>
+	<select>
+	    <![CDATA[
+		select to_char(start_time, 'yyyy-mm-dd hh24:mi:ss') start_time, lte_traf
+		from dmy_kpi
+	    ]]>
+	</select>
+</item>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sql>
+    <!-- 用户数和上网用户数 -->
+    <item id="userCnt">
+    	<![CDATA[
+   		select to_char(t.start_time, 'dd"日"hh24"时"') start_time,
+	       t.user_2g,
+	       t.user_3g,
+	       t.user_4g,
+	       t.netuser_2g,
+	       t.netuser_3g,
+	       t.netuser_4g
+	  from EMG_USERS t
+	 where t.region_id = ${region_id}
+	   and t.start_time =
+	       (select max(start_time) from EMG_USERS a where a.region_id = ${region_id})
+    	]]>
+    </item>
+    
+    <!-- 影响家客用户数和集客专线中断数-->
+    <item id="jkUsers">
+        <![CDATA[
+       select t.start_time, t.effect_jk_usernum, t.jk_interrupt_usernum
+		  from EMG_JK_USERS t
+		 where t.region_id = ${region_id}
+		   and t.start_time =
+		       (select max(start_time) from EMG_JK_USERS a where a.region_id = ${region_id})
+        ]]>
+    </item>
+</sql>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<item label="网络质量--告警" datasource="ips">
+	<fields>
+		<field name="start_time" label="开始时间"/>
+		<field name="region_name" label="地市名称"/>
+		<field name="core_alarm_name" label="核心网元释放码告警名称"/>
+		<field name="cp_alarm_name" label="CP负荷告警名称"/>
+		<field name="dial_alarm_name" label="拨测告警名称"/>
+	</fields>
+	<select>
+	    <![CDATA[
+	    select to_char(start_time, 'yyyy-mm-dd hh24:mi:ss') start_time,
+	       region_name,
+	       core_alarm_name,
+	       cp_alarm_name,
+	       dial_alarm_name
+	  from pro_network_alarm
+	    ]]>
+	</select>
+</item>

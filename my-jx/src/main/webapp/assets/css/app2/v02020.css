@@ -1,0 +1,124 @@
+#v02020 {
+	position: absolute;
+	width: 788px;
+	height: 100%;
+	left: 802px;
+}
+
+#v02020 .threeDiv {
+	position: relative;
+	height: 400px;
+}
+
+#v02020 .threeDiv > div:first-child {
+	position: absolute;
+	width: 285px;
+	height: 303px;
+	top: 44px;
+	left: 10px;
+}
+
+#v02020 .threeDiv > div:last-child {
+	position: absolute;
+	width: 507px;
+	height: 328px;
+	top: 44px;
+	right: 12px;
+}
+
+#v02020 .threeDiv > div:first-child > h2 {
+	position: relative;
+	top: -10px;
+	font-size: 35px;
+}
+
+#v02020 .threeDiv > div:first-child > div:nth-child(2) {
+	position: relative;
+	top: 10px;
+	font-size: 28px;
+}
+
+#v02020 .threeDiv > div:first-child > div:last-child {
+	position: relative;
+	top: 11px;
+	height: 204px;
+}
+
+#v02020 .threeDiv > div:first-child > div:nth-child(2) > span:nth-child(2) {
+	top: 4px;
+	color: #ffff00;
+	font-size: 32px;
+	height: 38px;
+	font-family: 'lcdnum';
+	overflow: hidden;
+	display: inline-block;
+	position: relative;
+}
+
+#v02020 .threeDiv > div:first-child > div:last-child > div:first-child {
+	position: absolute;
+	top: 37px;
+	left: 14px;
+	height: 142px;
+	width: 50px;
+}
+
+#v02020 .threeDiv > div:first-child > div:last-child .up {
+	background-image: url(../../images/app2/v02020_up.gif);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#v02020 .threeDiv > div:first-child > div:last-child .down {
+	background-image: url(../../images/app2/v02020_down.gif);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#v02020 .threeDiv > div:first-child > div:last-child > div:nth-child(2) {
+	position: absolute;
+	top: 30px;
+	left: 82px;
+	width: 150px;
+	height: 75px;
+	font-size: 28px;
+	text-align: center;
+}
+
+#v02020 .threeDiv > div:first-child > div:last-child > div:nth-child(3) {
+	position: absolute;
+	top: 110px;
+	left: 82px;
+	width: 150px;
+	height: 75px;
+	font-size: 28px;
+	text-align: center;
+}
+
+#v02020 .threeDiv > div:first-child > div:last-child > div:nth-child(2) span,
+#v02020 .threeDiv > div:first-child > div:last-child > div:nth-child(3) span {
+	display: block;
+	line-height: 35px;
+}
+
+
+#v02020 .threeDiv > div:first-child > div:last-child > div:nth-child(2) span:last-child,
+#v02020 .threeDiv > div:first-child > div:last-child > div:nth-child(3) span:last-child {
+	color: #ffff00;
+	font-size: 30px;
+	font-family: 'lcdnum';
+	height: 38px;
+	overflow: hidden;
+	display: inline-block;
+}
+
+#v02020 #myCarousel4 .carousel-indicators {
+	bottom: 4px;
+}
+
+#v02020 #myCarousel4 .mycarousel-control4 {
+	position: absolute;
+	top: 6px;
+	right: 212px;
+	display: none;
+}

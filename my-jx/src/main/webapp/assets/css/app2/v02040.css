@@ -1,0 +1,201 @@
+#v02040 {
+	position: absolute;
+	width: 830px;
+	height: 100%;
+	left: 3203px;
+}
+
+#v02040 > h2 {
+	font-size: 35px;
+	position: absolute;
+	top: 24px;
+	left: 62px;
+}
+
+#v02040 > .mytime {
+	font-size: 26px;
+	position: absolute;
+	top: 51px;
+	left: 318px;
+	color: #FFFF00;
+}
+
+#v02040 > .topDiv {
+	position: absolute;
+	top: 82px;
+	left: 24px;
+	width: 755px;
+	height: 520px;
+}
+
+#v02040 > .topDiv > #myCarousel5 {
+	height: 520px;
+}
+
+#v02040 > .topDiv > #myCarousel5 .carousel-inner {
+	height: 520px;
+}
+
+#v02040 > .topDiv > #myCarousel5 .item {
+	background-image: url(../../images/app2/v02040bg.png);
+	height: 100%;
+	background-position: 26px 42px;
+	background-repeat: no-repeat;
+}
+
+#v02040 > .topDiv > #myCarousel5 .carousel-indicators {
+	bottom: 0px;
+}
+
+#v02040 > .topDiv > #myCarousel5 .mycarousel-control5 {
+	position: absolute;
+	top: 0px;
+	right: 200px;
+	display: none;
+}
+
+#v02040 > .topDiv > #myCarousel5 .item > div {
+	position: relative;
+	width: 100%;
+	height: 62px;
+}
+
+#v02040 > .topDiv > #myCarousel5 .item > div:first-child {
+	top: 39px;
+}
+
+#v02040 > .topDiv > #myCarousel5 .item > div:nth-child(2) {
+	top: 105px;
+}
+
+#v02040 > .topDiv > #myCarousel5 .item > div:nth-child(3) {
+	top: 172px;
+}
+
+#v02040 > .topDiv > #myCarousel5 .item > div:last-child {
+	top: 238px;
+}
+
+#v02040 > .topDiv > #myCarousel5 .item > div > span:first-child {
+	position: relative;
+	line-height: 60px;
+	left: 60px;
+	color: #091230;
+	font-size: 30px;
+}
+
+#v02040 > .topDiv > #myCarousel5 .item > div > label:nth-child(2) {
+	height: 26px;
+	width: 0;/*最宽275px；*/
+	display: block;
+	position: absolute;
+	top: 21px;
+	left: 286px;
+	border-bottom-right-radius: 13px;
+	border-top-right-radius: 13px;
+	background-color: #84CAD3;
+}
+
+#v02040 > .topDiv > #myCarousel5 .item > div > span:last-child {
+	position: absolute;
+	left: 592px;
+	top: 10px;
+	color: #ffff00;
+	font-size: 28px;
+	height: 38px;
+	overflow: hidden;
+	font-family: 'lcdnum';
+}
+
+#v02040 > .bottomDiv {
+	width: 807px;
+    height: 549px;
+    position: absolute;
+    top: 644px;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .mycarousel-control6 {
+	position: absolute;
+	top:5px;
+	right:224px;
+	display: none;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 {
+	height:100%;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .carousel-inner{
+	height:100%;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item {
+	height:100%;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item > h2 {
+	font-size: 35px;
+	position: absolute;
+	top: -3px;
+	left: 68px;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item > div {
+	position: relative;
+	top: 94px;
+	height: 60px;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item > div:nth-child(3) {
+	top: 122px;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item > div:nth-child(4) {
+	top:149px;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item > div:nth-child(5) {
+	top:174px;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item > div:last-child {
+	top:199px;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item > div > span:first-child {
+	font-size: 30px;
+	position: absolute;
+	left: 48px;
+	top: 6px;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item > div > div:nth-child(2) {
+	border: 1px solid #33E2FF;
+	display: inline-block;
+	position: absolute;
+	width: 480px;
+	height: 100%;
+	left: 150px;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item > div > div:nth-child(2) > label {
+	background-color: #33E2FF;
+	width: 30px;
+	height: 50px;
+	margin: 4px 2px;
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .item > div > span:nth-child(3) {
+	font-size: 30px;
+	color: #ffff00;
+	position: absolute;
+	left: 648px;
+	top: 7px;
+	height: 38px;
+	overflow: hidden;
+	font-family: 'lcdnum';
+}
+
+#v02040 > .bottomDiv > #myCarousel6 .carousel-indicators {
+	bottom: 0px;
+}

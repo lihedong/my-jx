@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sql>
+    <!-- 性能指标 -->
+    <item id="pmIndicator">
+    	<![CDATA[
+   		select to_char(t.start_time, 'dd"日"hh24"时"') start_time,
+		       t.gsm_wireless_fail_rate,
+		       t.gsm_wireless_jam_rate,
+		       t.gsm_wireless_succ_rate,
+		       t.td_wireless_fail_rate,
+		       t.lte_wireless_succ_rate,
+		       t.lte_wireless_fail_rate,
+		       t.lte_call_succ_rate,
+		       t.td_wireless_traffail_rate
+		  from EMG_PM_INDICATOR t
+		 where t.region_id = ${region_id}
+		   and t.start_time = (select max(start_time)
+		                         from EMG_PM_INDICATOR a
+		                        where a.region_id = ${region_id})
+    	]]>
+    </item>
+    
+    <!-- MSC负荷最高的网元Top5-->
+    <item id="MSCTopFive">
+        <![CDATA[
+	select t.start_time, t.ne_type name, t.msc_num value
+	  from EMG_MSC t
+	 where t.region_id = ${region_id}
+	   and t.start_time =
+	       (select max(start_time) from EMG_MSC a where a.region_id = ${region_id})
+	 order by msc_num desc
+        ]]>
+    </item>
+    
+    <!-- MSC负荷最高的网元Top5-->
+    <item id="MGWTopFive">
+        <![CDATA[
+    select t.start_time, t.ne_type name, t.mgw_num value
+      from EMG_MGW t
+     where t.region_id = ${region_id}
+       and t.start_time =
+           (select max(start_time) from EMG_MGW a where a.region_id = ${region_id})
+     order by mgw_num desc
+        ]]>
+    </item>
+</sql>

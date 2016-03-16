@@ -1,0 +1,52 @@
+body {
+	width: 4800px;
+	height: 1200px;
+	background-image: url(../../images/app2/bg.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	font-family: 'Microsoft YaHei';
+	color: #FFFFFF;
+}
+
+.ips-app {
+	width: 4800px;
+	height: 1200px;
+	position: absolute;
+}
+
+.title {
+	position: absolute;
+	font-size: 50px;
+	color: #FFFFFF;
+	top: 30px;
+	font-weight: bolder;
+	letter-spacing: 10px;
+	left: 2300px;
+}
+
+.time {
+	color: #FFFF00;
+	font-size: 25px;
+}
+
+.anchorBL {
+	display: none;
+}
+
+.cleft {
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+.cmiddle {
+	position: absolute;
+	display: block;
+	left: 70px;
+}
+
+.cright {
+	position: absolute;
+	top: 5px;
+	left: 140px;
+}

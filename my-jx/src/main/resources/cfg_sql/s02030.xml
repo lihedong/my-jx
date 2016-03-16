@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql>
+    <!--地区(各个地市)配置sql-->
+    <item id="regionInfo">
+        <![CDATA[
+	select region_id, region_name
+	  from emg_cm_region
+	 where region_name = '${region_name}'
+        ]]>
+    </item>
+    
+    <!--县区（各个地市对应区县）配置sql-->
+    <item id="cityInfo">
+        <![CDATA[
+	select region_id, related_region_name,city_name
+		  from emg_cm_city
+	 where related_region_name = '${region_name}'
+        ]]>
+    </item>
+    
+    <!--热图数据:区县数据-->
+    <item id="cityHeatMapInfo">
+        <![CDATA[
+	select distinct a.city_name city_name,
+	                b.longitude longitude,
+	                b.latitude  latitude,
+	                a.count     count
+	  from app6_rainfall a, emg_cm_bts b
+	 where a.city_name = b.city_name
+	   and a.city_name in
+	       (select city_name
+	          from emg_cm_city
+	         where related_region_name = '${region_name}')
+	   and b.longitude is not null
+	   and b.latitude is not null
+        ]]>
+    </item>
+    
+    <!--热图数据：全省数据，各个区县汇总-->
+    <item id="regionHeatMapInfo">
+        <![CDATA[
+	select distinct a.city_name city_name,
+	                b.longitude longitude,
+	                b.latitude  latitude,
+	                a.count     count
+	  from app6_rainfall a, emg_cm_bts b
+	 where a.city_name = b.city_name
+	   and a.city_name in (select distinct city_name from emg_cm_city)
+	   and b.longitude is not null
+	   and b.latitude is not null
+        ]]>
+    </item> 
+
+    <!--复选框中各个指标统计值-->
+    <item id="totalNum">
+        <![CDATA[
+	select count(*) counts
+	  from emg_bts_out a, emg_cm_bts b
+	 where a.start_time = (select max(start_time) from emg_bts_out)
+	   and b.start_time = (select max(start_time) from emg_cm_bts)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'GSM'
+	   and b.longitude is not null
+	   and b.latitude is not null
+	union all
+	select count(*)
+	  from emg_bts_out a, emg_cm_nodeb b
+	 where a.start_time = (select max(start_time) from emg_bts_out)
+	   and b.start_time = (select max(start_time) from emg_cm_nodeb)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'TD'
+	   and b.longitude is not null
+	   and b.latitude is not null
+	union all
+	select count(*)
+	  from emg_bts_out a, emg_cm_enodeb b
+	 where a.start_time = (select max(start_time) from emg_bts_out)
+	   and b.start_time = (select max(start_time) from emg_cm_enodeb)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'LTE'
+	   and b.longitude is not null
+	   and b.latitude is not null
+	union all
+	select count(*)
+	  from emg_cell_out a, emg_cm_cell b
+	 where a.start_time = (select max(start_time) from emg_cell_out)
+	   and b.start_time = (select max(start_time) from emg_cm_cell)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'GSM'
+	   and b.longitude is not null
+	   and b.latitude is not null
+	union all
+	select count(*)
+	  from emg_cell_out a, emg_cm_utrancell b
+	 where a.start_time = (select max(start_time) from emg_cell_out)
+	   and b.start_time = (select max(start_time) from emg_cm_utrancell)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'TD'
+	   and b.longitude is not null
+	   and b.latitude is not null
+	union all
+	select count(*)
+	  from emg_cell_out a, emg_cm_eutrancell b
+	 where a.start_time = (select max(start_time) from emg_cell_out)
+	   and b.start_time = (select max(start_time) from emg_cm_eutrancell)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'LTE'
+	   and b.longitude is not null
+	   and b.latitude is not null
+	union all
+	select count(*)
+	  from emg_emergency_car
+	 where start_time = (select max(start_time) from emg_emergency_car)
+	   and longitude is not null
+	   and latitude is not null
+	union all
+	select count(*)
+	  from emg_satellite_car
+	 where start_time = (select max(start_time) from emg_satellite_car)
+	   and longitude is not null
+	   and latitude is not null
+	union all
+	select count(*)
+	  from emg_super_bts a,
+	       (select ne_id, ne_name, longitude, latitude
+	          from emg_cm_bts
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_bts)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_nodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_nodeb)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_enodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_enodeb)) b
+	 where start_time = (select max(start_time) from emg_super_bts)
+	   and a.ne_id = b.ne_id
+	union all
+	select count(*)
+	  from emg_cm_bts
+	 where dzj_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_bts)
+	union all
+	select count(*)
+	  from emg_cm_nodeb
+	 where dzj_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_nodeb)
+	union all
+	select count(*)
+	  from emg_cm_enodeb
+	 where dzj_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_enodeb)
+	union all
+	select count(*)
+	  from emg_cell_bad a, emg_cm_cell b
+	 where a.start_time = (select max(start_time) from emg_cell_bad)
+	   and b.start_time = (select max(start_time) from emg_cm_cell)
+	   and a.ne_id = b.ne_id
+	   and b.longitude is not null
+	   and b.latitude is not null
+	   and a.ne_type = 'GSM'
+	union all
+	select count(*)
+	  from emg_cell_bad a, emg_cm_utrancell b
+	 where a.start_time = (select max(start_time) from emg_cell_bad)
+	   and b.start_time = (select max(start_time) from emg_cm_utrancell)
+	   and a.ne_id = b.ne_id
+	   and b.longitude is not null
+	   and b.latitude is not null
+	   and a.ne_type = 'TD'
+	union all
+	select count(*)
+	  from emg_cell_bad a, emg_cm_eutrancell b
+	 where a.start_time = (select max(start_time) from emg_cell_bad)
+	   and b.start_time = (select max(start_time) from emg_cm_eutrancell)
+	   and a.ne_id = b.ne_id
+	   and b.longitude is not null
+	   and b.latitude is not null
+	   and a.ne_type = 'LTE'
+	union all
+	select count(*)
+	  from emg_cm_cell
+	 where start_time = (select max(start_time) from emg_cm_cell)
+	   and longitude is not null
+	   and latitude is not null
+	union all
+	select count(*)
+	  from emg_cm_utrancell
+	 where start_time = (select max(start_time) from emg_cm_utrancell)
+	   and longitude is not null
+	   and latitude is not null
+	union all
+	select count(*)
+	  from emg_cm_eutrancell
+	 where start_time = (select max(start_time) from emg_cm_eutrancell)
+	   and longitude is not null
+	   and latitude is not null
+	
+	union all
+	select count(*)
+	  from emg_cm_bts
+	 where vvip_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_bts)
+	union all
+	select count(*)
+	  from emg_cm_nodeb
+	 where vvip_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_nodeb)
+	union all
+	select count(*)
+	  from emg_cm_enodeb
+	 where vvip_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_enodeb)
+	union all
+	select count(*)
+	  from emg_cab_break
+	 where start_time = (select max(start_time) from emg_cab_break)
+	union all
+	select count(*)
+	  from emg_bts_powercut a,
+	       (select ne_id, ne_name, longitude, latitude
+	          from emg_cm_bts
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_bts)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_nodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_nodeb)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_enodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_enodeb)) b
+	 where start_time = (select max(start_time) from emg_bts_powercut)
+	   and a.ne_id = b.ne_id
+	union all
+	select count(*)
+	  from emg_bts_generation a,
+	       (select ne_id, ne_name, longitude, latitude
+	          from emg_cm_bts
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_bts)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_nodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_nodeb)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_enodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_enodeb)) b
+	 where start_time = (select max(start_time) from emg_bts_generation)
+	   and a.ne_id = b.ne_id
+	union all
+	select count(*)
+	  from emg_cm_bts
+	 where longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_bts)
+	union all
+	select count(*)
+	  from emg_cm_nodeb
+	 where longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_nodeb)
+	union all
+	select count(*)
+	  from emg_cm_enodeb
+	 where longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_enodeb)
+        ]]>
+    </item>     
+    
+    <!--复选框：2G退服基站-->
+    <item id="gsmBtsOutInfo">
+        <![CDATA[
+	select a.ne_id     ne_id,
+	       a.ne_type   ne_type,
+	       a.ne_name   ne_name,
+	       b.longitude longitude,
+	       b.latitude  latitude
+	  from emg_bts_out a, emg_cm_bts b
+	 where a.start_time = (select max(start_time) from emg_bts_out)
+	   and b.start_time = (select max(start_time) from emg_cm_bts)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'GSM'
+	   and b.longitude is not null
+	   and b.latitude is not null
+        ]]>
+    </item>  
+
+    <!--复选框：3G退服基站-->
+    <item id="tdBtsOutInfo">
+        <![CDATA[
+	select a.ne_id     ne_id,
+	       a.ne_name   ne_name,
+	       b.longitude longitude,
+	       b.latitude  latitude
+	  from emg_bts_out a, emg_cm_nodeb b
+	 where a.start_time = (select max(start_time) from emg_bts_out)
+	   and b.start_time = (select max(start_time) from emg_cm_nodeb)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'TD'
+	   and b.longitude is not null
+	   and b.latitude is not null
+        ]]>
+    </item>  
+    
+    <!--复选框：4G退服基站-->
+    <item id="lteBtsOutInfo">
+        <![CDATA[
+	select a.ne_id     ne_id,
+	       a.ne_name   ne_name,
+	       b.longitude longitude,
+	       b.latitude  latitude
+	  from emg_bts_out a, emg_cm_enodeb b
+	 where a.start_time = (select max(start_time) from emg_bts_out)
+	   and b.start_time = (select max(start_time) from emg_cm_enodeb)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'LTE'
+	   and b.longitude is not null
+	   and b.latitude is not null
+        ]]>
+    </item>  
+
+    <!--复选框：GSM小区退服-->
+    <item id="gsmCellOutInfo">
+        <![CDATA[
+	select a.ne_id     ne_id,
+	       a.ne_name   ne_name,
+	       b.longitude longitude,
+	       b.latitude  latitude
+	  from emg_cell_out a, emg_cm_cell b
+	 where a.start_time = (select max(start_time) from emg_cell_out)
+	   and b.start_time = (select max(start_time) from emg_cm_cell)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'GSM'
+	   and b.longitude is not null
+	   and b.latitude is not null
+        ]]>
+    </item>  
+
+    <!--复选框：TD小区退服-->
+    <item id="tdCellOutInfo">
+        <![CDATA[
+	select a.ne_id     ne_id,
+	       a.ne_name   ne_name,
+	       b.longitude longitude,
+	       b.latitude  latitude
+	  from emg_cell_out a, emg_cm_utrancell b
+	 where a.start_time = (select max(start_time) from emg_cell_out)
+	   and b.start_time = (select max(start_time) from emg_cm_utrancell)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'TD'
+	   and b.longitude is not null
+	   and b.latitude is not null
+        ]]>
+    </item>  
+    
+    <!--复选框：LTE小区退服-->
+    <item id="lteCellOutInfo">
+        <![CDATA[
+	select a.ne_id     ne_id,
+	       a.ne_name   ne_name,
+	       b.longitude longitude,
+	       b.latitude  latitude
+	  from emg_cell_out a, emg_cm_eutrancell b
+	 where a.start_time = (select max(start_time) from emg_cell_out)
+	   and b.start_time = (select max(start_time) from emg_cm_eutrancell)
+	   and a.ne_id = b.ne_id
+	   and a.ne_type = 'LTE'
+	   and b.longitude is not null
+	   and b.latitude is not null
+        ]]>
+    </item>  
+      
+    <!--复选框：应急通讯车位置-->
+    <item id="alarmCarInfo">
+        <![CDATA[
+	select ne_name, longitude, latitude
+	  from emg_emergency_car
+	 where start_time = (select max(start_time) from emg_emergency_car)
+	   and longitude is not null
+	   and latitude is not null
+        ]]>
+    </item>   
+    
+    <!--复选框：卫星通信车位置-->
+    <item id="satelliteCarInfo">
+        <![CDATA[
+	select ne_name, longitude, latitude
+	  from emg_satellite_car
+	 where start_time = (select max(start_time) from emg_satellite_car)
+	   and longitude is not null
+	   and latitude is not null
+        ]]>
+    </item>   
+
+    <!--复选框：超级基站位置-->
+    <item id="superBtsInfo">
+        <![CDATA[
+	select a.ne_name ne_name, b.longitude longitude, b.latitude latitude
+	  from emg_super_bts a,
+	       (select ne_id, ne_name, longitude, latitude
+	          from emg_cm_bts
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_bts)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_nodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_nodeb)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_enodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_enodeb)) b
+	 where start_time = (select max(start_time) from emg_super_bts)
+	   and a.ne_id = b.ne_id
+        ]]>
+    </item>  
+    
+    <!--复选框：党政军基站退服(2G)-->
+    <item id="gsmGovInfo">
+        <![CDATA[
+	select ne_id ne_id, ne_name, longitude, latitude
+	  from emg_cm_bts
+	 where dzj_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_bts)
+        ]]>
+    </item>  
+    
+    <!--复选框：党政军基站退服(3G)-->
+    <item id="tdGovInfo">
+        <![CDATA[
+	select ne_id ne_id, ne_name, longitude, latitude
+	  from emg_cm_nodeb
+	 where dzj_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_nodeb)
+        ]]>
+    </item> 
+    
+    <!--复选框：党政军基站退服(4G)-->
+    <item id="lteGovInfo">
+        <![CDATA[
+	select ne_id ne_id, ne_name, longitude, latitude
+	  from emg_cm_enodeb
+	 where dzj_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_enodeb)
+        ]]>
+    </item> 
+    
+    <!--复选框：G网劣化小区-->
+    <item id="gsmBadCellInfo">
+        <![CDATA[
+	select a.ne_id     ne_id,
+	       a.ne_name   ne_name,
+	       b.longitude longitude,
+	       b.latitude  latitude
+	  from emg_cell_bad a, emg_cm_cell b
+	 where a.start_time = (select max(start_time) from emg_cell_bad)
+	   and b.start_time = (select max(start_time) from emg_cm_cell)
+	   and a.ne_id = b.ne_id
+	   and b.longitude is not null
+	   and b.latitude is not null
+	   and a.ne_type = 'GSM'
+        ]]>
+    </item>
+    
+    <!--复选框：T网劣化小区-->
+    <item id="tdBadCellInfo">
+        <![CDATA[
+	select a.ne_id     ne_id,
+	       a.ne_name   ne_name,
+	       b.longitude longitude,
+	       b.latitude  latitude
+	  from emg_cell_bad a, emg_cm_utrancell b
+	 where a.start_time = (select max(start_time) from emg_cell_bad)
+	   and b.start_time = (select max(start_time) from emg_cm_utrancell)
+	   and a.ne_id = b.ne_id
+	   and b.longitude is not null
+	   and b.latitude is not null
+	   and a.ne_type = 'TD'
+        ]]>
+    </item>
+ 
+    <!--复选框：L网劣化小区-->
+    <item id="lteBadCellInfo">
+        <![CDATA[
+	select a.ne_id     ne_id,
+	       a.ne_name   ne_name,
+	       b.longitude longitude,
+	       b.latitude  latitude
+	  from emg_cell_bad a, emg_cm_eutrancell b
+	 where a.start_time = (select max(start_time) from emg_cell_bad)
+	   and b.start_time = (select max(start_time) from emg_cm_eutrancell)
+	   and a.ne_id = b.ne_id
+	   and b.longitude is not null
+	   and b.latitude is not null
+	   and a.ne_type = 'LTE'
+        ]]>
+    </item>  
+    
+    <!--复选框：G网小区-->
+    <item id="gsmCellInfo">
+        <![CDATA[
+	select ne_id, ne_name, longitude, latitude
+	  from emg_cm_cell
+	 where start_time = (select max(start_time) from emg_cm_cell)
+	   and longitude is not null
+	   and latitude is not null
+        ]]>
+    </item>   
+    
+    <!--复选框：T网小区-->
+    <item id="tdCellInfo">
+        <![CDATA[
+	select ne_id, ne_name, longitude, latitude
+	  from emg_cm_utrancell
+	 where start_time = (select max(start_time) from emg_cm_utrancell)
+	   and longitude is not null
+	   and latitude is not null
+        ]]>
+    </item>  
+    
+    <!--复选框：L网小区-->
+    <item id="lteCellInfo">
+        <![CDATA[
+	select ne_id, ne_name, longitude, latitude
+	  from emg_cm_eutrancell
+	 where start_time = (select max(start_time) from emg_cm_eutrancell)
+	   and longitude is not null
+	   and latitude is not null
+        ]]>
+    </item> 
+
+    <!--复选框：VVIP基站退服(2G)-->
+    <item id="gsmVvipInfo">
+        <![CDATA[
+	select ne_id ne_id, ne_name, longitude, latitude
+	  from emg_cm_bts
+	 where vvip_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_bts)
+        ]]>
+    </item>  
+
+    <!--复选框：VVIP基站退服(3G)-->
+    <item id="tdVvipInfo">
+        <![CDATA[
+	select ne_id ne_id, ne_name, longitude, latitude
+	  from emg_cm_nodeb
+	 where vvip_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_nodeb)
+        ]]>
+    </item>
+    
+    <!--复选框：VVIP基站退服(4G)-->
+    <item id="lteVvipInfo">
+        <![CDATA[
+	select ne_id ne_id, ne_name, longitude, latitude
+	  from emg_cm_enodeb
+	 where vvip_flag = 1
+	   and longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_enodeb)
+        ]]>
+    </item>
+    
+    <!--复选框：光缆中断-->
+    <item id="cabBreakInfo">
+        <![CDATA[
+	select ne_name, longitude, latitude
+	  from emg_cab_break
+	 where start_time = (select max(start_time) from emg_cab_break)
+        ]]>
+    </item>
+
+    <!--复选框：停电基站-->
+    <item id="powercutInfo">
+        <![CDATA[
+	select a.ne_name ne_name, b.longitude longitude, b.latitude latitude
+	  from emg_bts_powercut a,
+	       (select ne_id, ne_name, longitude, latitude
+	          from emg_cm_bts
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_bts)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_nodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_nodeb)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_enodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_enodeb)) b
+	 where start_time = (select max(start_time) from emg_bts_powercut)
+	   and a.ne_id = b.ne_id
+        ]]>
+    </item>
+    
+    <!--复选框：油机发电基站-->
+    <item id="generationInfo">
+        <![CDATA[
+	select a.ne_name ne_name, b.longitude longitude, b.latitude latitude
+	  from emg_bts_generation a,
+	       (select ne_id, ne_name, longitude, latitude
+	          from emg_cm_bts
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_bts)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_nodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_nodeb)
+	        union
+	        select ne_id, ne_name, longitude, latitude
+	          from emg_cm_enodeb
+	         where longitude is not null
+	           and latitude is not null
+	           and start_time = (select max(start_time) from emg_cm_enodeb)) b
+	 where start_time = (select max(start_time) from emg_bts_generation)
+	   and a.ne_id = b.ne_id
+        ]]>
+    </item>
+    
+    <!--复选框：GSM基站-->
+    <item id="gsmBtsInfo">
+        <![CDATA[
+	select ne_id, ne_name, longitude, latitude
+	  from emg_cm_bts
+	 where longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_bts)
+        ]]>
+    </item>
+
+    <!--复选框：TD基站-->
+    <item id="tdBtsInfo">
+        <![CDATA[
+	select ne_id, ne_name, longitude, latitude
+	  from emg_cm_nodeb
+	 where longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_nodeb)
+        ]]>
+    </item>
+
+    <!--复选框：LTE基站-->
+    <item id="lteBtsInfo">
+        <![CDATA[
+	select ne_id, ne_name, longitude, latitude
+	  from emg_cm_enodeb
+	 where longitude is not null
+	   and latitude is not null
+	   and start_time = (select max(start_time) from emg_cm_enodeb)
+        ]]>
+    </item>
+    
+</sql>

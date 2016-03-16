@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+    <!-- 网络质量 各项占比 -->
+    <item id="01">
+    	<![CDATA[
+	    select to_char(start_time, 'dd"日" hh24"时"mi"分"') start_time,
+		       lte_jamcell_rate,
+		       lte_badcell_rate,
+		       wireless_fail_rate,
+		       mme_succ_rate,
+		       dns_parse_rate,
+		       addr_use_rate,
+		       broadband_use_rate
+		  from pro_network_quality
+		  where start_time = (select max(start_time) from pro_network_quality)
+    	]]>
+    </item>
+    
+    <!-- 网络质量 告警 -->
+    <item id="02">
+    	<![CDATA[
+    		select start_time, region_name, alarm_level, alarm_name
+			  from pro_network_alarm
+			 where start_time = (select max(start_time) from pro_network_alarm)
+    	]]>
+    </item>
+    
+    <!-- 网络质量 告警 -->
+    <item id="03">
+    	<![CDATA[
+			select start_time, net_fault, net_normal
+			  from pro_net_fault
+			 where start_time = (select max(start_time) from pro_net_fault)
+    	]]>
+    </item>
+</sql>

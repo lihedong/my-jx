@@ -1,0 +1,87 @@
+/*3D  time  10s  6s     
+ *2D  time   10s  10s
+*/
+
+/**2D
+* ips-app
+*fly-into-ani
+* down-ani
+*/
+.ips-app {
+	-webkit-animation: down-ani  10s 1 ease-out ;
+	-moz-animation:  ips-app 10s 1 ease-out ;
+	-o-animation:  ips-app 10s 1 ease-out ;
+}
+
+/**3D*/
+/*  .ips-app  div { */
+/*     -webkit-animation: ips-app-div 6s 1 ease-out; */
+/*     -moz-animation: ps-app-div 6s 1 ease-out; */
+/*     -o-animation: ps-app-div 6s 1 ease-out; */
+/* }  */
+
+/*3D  */
+@-webkit-keyframes ips-app {
+0% { -webkit-transform:  rotateY(0deg) scaleX(0) skew(90deg) translate(0px); }
+30% { -webkit-transform: rotateY(50deg) scaleX(1.2) skew(180deg) translate(180px); }
+100% { -webkit-transform: rotateY(360deg) scaleX(1) skew(0deg) translate(0px);}
+}
+/*3D  */
+@-moz-keyframes ips-app {
+0% { -moz-transform:  rotateY(0deg) scale(0) skew(90deg) translate(0px); }
+30% { -moz-transform: rotateY(50deg) scale(1.2) skew(180deg) translate(180px); }
+100% { -moz-transform: rotateY(360deg) scale(1) skew(0deg) translate(0px);}
+}
+@-o-keyframes ips-app {
+0% { -o-transform:  rotateY(0deg) scale(0) skew(90deg) translate(0px); }
+30% { -o-transform: rotateY(50deg) scale(1.2) skew(180deg) translate(180px); }
+100% { -o-transform: rotateY(360deg) scale(1) skew(0deg) translate(0px);}
+}
+
+
+@-webkit-keyframes ips-app-div {
+from { -webkit-transform: rotateY(0deg) scaleY(0) skew(-70deg) translate(90px);perspective:200px; }
+to { -webkit-transform: rotateY(360deg) scaleY(1) skew(0deg) translate(0px); perspective:200px;}
+}
+@-moz-keyframes ips-app-div {
+from { -moz-transform: rotateY(0deg) scale(0) skew(-70deg) translate(90px);perspective:200px; }
+to { -moz-transform: rotateY(360deg) scale(1) skew(0deg) translate(0px); perspective:200px;}
+}
+@-o-keyframes ips-app-div {
+from { -o-transform: rotateY(0deg) scale(0) skew(-70deg) translate(90px);perspective:200px; }
+to { -o-transform: rotateY(360deg) scale(1) skew(0deg) translate(0px); perspective:200px;}
+}
+
+/**飞入-*/
+@-webkit-keyframes fly-into-ani {
+from { -webkit-transform: rotate(0deg) scaleY(0) skew(0deg) translate(-3840px); }
+to { -webkit-transform: rotate(0deg) scaleY(1) skew(0deg) translate(0px); }
+}
+@-moz-keyframes fly-into-ani {
+from { -moz-transform: rotate(0deg) scaleY(0) skew(0deg) translate(0px); }
+to { -moz-transform: rotate(0deg) scaleY(1) skew(0deg) translate(0px); }
+}
+@-o-keyframes fly-into-ani {
+from { -o-transform: rotate(0deg) scaleY(0) skew(0deg) translate(0px); }
+to { -o-transform: rotate(0deg) scaleY(1) skew(0deg) translate(0px); }
+}
+
+/**下落*/
+@-webkit-keyframes down-ani {
+from { -webkit-transform: rotate(0deg) scaleX(0) skew(0deg) translateY(-1080px); }
+to { -webkit-transform: rotate(0deg) scaleX(1) skew(0deg) translate(0px); }
+}
+@-moz-keyframes down-ani {
+from { -moz-transform: rotate(0deg) scaleX(0) skew(0deg) translate(0px); }
+to { -moz-transform: rotate(0deg) scaleX(1) skew(0deg) translate(0px); }
+}
+@-o-keyframes down-ani {
+from { -o-transform: rotate(0deg) scaleX(0) skew(0deg) translate(0px); }
+to { -o-transform: rotate(0deg) scaleX(1) skew(0deg) translate(0px); }
+}
+
+
+
+
+
+

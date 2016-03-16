@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sql>
+    <!-- 分地市话务量 -->
+    <item id="01">
+    	<![CDATA[
+    		select to_char(start_time, 'dd"日" hh24"时"mi"分"') start_time,
+		       powercut_bts_num,
+		       gsm_out_bts_num,
+		       td_out_bts_num,
+		       lte_out_bts_num,
+		       light_stop_num,
+		       total_alarm_num,
+		       standard_alarm_num,
+		       nonproject_alarm_num,
+		       order_alarm_num,
+		       time_order_num,
+		       t1_order_num,
+		       t2_order_num,
+		       verified_order_num,
+		       send_order_alarm_rate
+		  from pro_focus_fault
+		 where start_time = (select max(start_time) from pro_focus_fault)
+    	]]>
+    </item>
+</sql>

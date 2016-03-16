@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'lcdnum';
+  src: url('../../fonts/lcdnum.ttf');
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.ips-app {
+	position: absolute;
+    display: block;
+    left: 0px;
+    top: 0px;
+    width: 4800px;
+    height: 1200px;
+}
+
+.ips-window {
+    position: absolute;
+    display: none;
+    left: 0px;
+    top: 0px;
+    width: 4800px;
+    height: 1200px;
+}
+
+.ips-mask {
+    -webkit-filter: blur(10px);
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);   
+            filter: blur(10px);  
+}
+
+.ips-focus {
+    box-shadow:0 1px 30px rgba(59,255,255,1);
+}
+
+.ips-breath {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: ips-breath;
+    -webkit-animation-duration: 1500ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+@-webkit-keyframes ips-breath {
+    0% { opacity: 0.2; box-shadow:0 1px 2px rgba(255,255,255,0.1) ;}
+    100% { opacity: 1; box-shadow:0 1px 30px rgba(59,255,255,1) ;}
+}
+
+.ips-heartbeat {
+	box-shadow:0 1px 30px rgba(59,255,255,1);
+    -webkit-animation-name: ips-heartbeat;
+    -webkit-animation-duration: 2000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+}
+@-webkit-keyframes ips-heartbeat {
+    from { transform: none; }
+    50% { transform: scale(1.05); }
+    to { transform: none; }
+}
+
+.ips-num {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+}
+.ips-num div {
+  position: absolute;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+

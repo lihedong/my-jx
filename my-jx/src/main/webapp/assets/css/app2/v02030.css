@@ -1,0 +1,357 @@
+#v02030 {
+	position: absolute;
+	left: 1602px;
+	width: 1593px;
+	height: 1070px;
+}
+
+#v02030_map {
+	position: absolute;
+	top: 120px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 120px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#v02030_weather {
+	position: absolute;
+	top: 120px;
+	width: 520px;
+	height: 800px;
+	background-color: rgba(29, 52, 65, 0.8);
+}
+
+#v02030_weather_title {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	font-size: 35px;
+	color: #ffffff;
+}
+
+#v02030_weather_info {
+	position: absolute;
+	left: 20px;
+	top: 70px;
+	font-size: 30px;
+	color: #ffffff;
+}
+
+#v02030_weather_info>div {
+	margin-top: 5px;
+}
+
+.v02030_weather_info_s1 {
+	margin-left: 123px;
+}
+
+.v02030_weather_info_s2 {
+	margin-left: 77px;
+}
+
+.v02030_weather_info_s3 {
+	margin-left: 60px;
+}
+
+#v02030_news_title {
+	position: absolute;
+	left: 20px;
+	top: 400px;
+	font-size: 35px;
+	color: #ffffff;
+}
+
+#v02030_news_info {
+	position: absolute;
+	left: 20px;
+	top: 460px;
+	width: 480px;
+	height: 320px;
+	font-size: 30px;
+	word-break: break-all;
+}
+
+img[src="assets/images/app2/v02031_typhoon.png"] {
+	animation: mymove 10s linear infinite;
+	-webkit-animation: mymove 10s linear infinite; /*Safari and Chrome*/
+}
+
+@
+-webkit-keyframes mymove /*Safari and Chrome*/ {
+	from {transform: rotate(360deg);
+}
+
+to {
+	transform: rotate(0deg);
+}
+
+}
+@
+keyframes mymove {
+	from {transform: rotate(360deg);
+}
+
+to {
+	transform: rotate(0deg);
+}
+
+}
+#v02030 .v02030_bts .btn1 {
+	position: absolute;
+	top: 92px;
+	right: 182px;
+	background-color: #0091EC;
+	border: 0px;
+}
+
+#v02030 .v02030_bts .btn1>.triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-bottom: 15px solid white;
+	margin: 4px 27px;
+}
+
+#v02030 .v02030_bts .btn1>.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-top: 15px solid white;
+	margin: 4px 27px;
+}
+
+#v02030 .v02030_bts .content {
+	width: 1593px;
+	height: 790px;
+	position: absolute;
+	top: 119px;
+	background-color: rgba(29, 52, 65, 0.7);
+	display: none;
+}
+
+#v02030 .v02030_bts .content table {
+	width: 100%;
+	height: 100%;
+	font-size: 28px;
+}
+
+#v02030 .v02030_bts .content ul {
+	list-style: none;
+}
+
+#v02030 .v02030_bts .content ul li {
+	height: 65px;
+}
+
+#v02030 .v02030_bts .content ul li img {
+	height: 60px;
+}
+
+#v02030 .v02030_bts .content ul li span:last-child {
+	margin-left: 15px;
+	color: yellow;
+}
+
+#v02030 .v02030_bts .content tr {
+	height: 33.3%;
+}
+
+#v02030 .v02030_bts .content td {
+	width: 33.3%;
+}
+
+#v02030 .v02030_bts .hidden-input {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+#v02030 .v02030_bts input[type=checkbox]+label {
+	/* your style goes here */
+	position: relative;
+	top: 10px;
+	display: inline-block;
+	height: 28px;
+	width: 28px;
+	border: 1px solid white;
+	background-color: #43678E;
+}
+/* active style goes here */
+#v02030 .v02030_bts input[type=checkbox]:checked+label {
+	background-color: #26CA28;
+}
+
+#v02030 .v02030_bts input[type=checkbox]:checked+label:after {
+	opacity: 1;
+}
+
+#v02030 .v02030_bts input[type=checkbox]+label:after {
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 12px;
+	background: transparent;
+	top: 4px;
+	left: 2px;
+	border: 5px solid red;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+#v02030_show_btn {
+	position: absolute;
+	top: 920px;
+	width: 100px;
+	height: 25px;
+	text-align:center;
+	background-color: #0091EC;
+	border: 2px;
+	display: inline-flex;
+}
+
+.v02030_show_regionName {
+	font-size: 18px;
+}
+
+.v02030_region_triangle_up {
+	width: 0px;
+	height: 0px;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 18px solid white;
+	margin: auto;
+	margin-bottom: 5px;
+}
+
+.v02030_region_triangle_down {
+	width: 0px;
+	height: 0px;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 18px solid white;
+	margin: auto;
+}
+
+#v02030_region {
+	position: absolute;
+	left: 0px;
+	top: 945px;
+	width: 1593px;
+	height: 245px;
+	display:none;
+	background-color: rgba(29, 52, 65, 0.6);
+}
+
+.v02030_region_list {
+	position: absolute;
+	left: 10px;
+	top: 5px;
+	width: 1500px;
+	height: 30px;
+}
+
+.v02030_region_btn {
+	width: 110px;
+	background-color: #00004D;
+	color: #FFFFFF;
+	border-radius: 5px 5px;
+	border: 0px solid #35FF0B;
+	font-size: 20px;
+	margin-left: 10px;
+}
+
+.v02030_region_line {
+	border: 1.5px solid #35FF0B;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.v02030_region_countyTitle {
+	display: block;
+	padding-left: 25px;
+	width: 30px;
+	font-size: 30px;
+	color: #00F9FF;
+	font-weight: bold;
+}
+
+.v02030_region_county{
+	position: absolute;
+	left: 80px;
+	top: 60px;
+	height:95px;
+	width:1450px;
+}
+
+.v02030_region_county > table{
+	/*width: 1450px;*/
+	width: 1450px;
+	height: 100px;
+}
+
+/* .v02030_region_county label input{ */
+/* 	font-size: 40px; */
+/* 	color: red; */
+/* } */
+
+.v02030_region_county label input{
+	width:18px;
+	height:18px;
+}
+
+.v02030_region_county label{
+	color: #A4FFCB;
+    font-size: 21px;
+}
+
+.v02030_alarm{
+	position:absolute;
+	left:30px;
+	top:160px;
+	width:1500px;
+	height:70px;
+}
+
+.v02030_alarm_title{
+	position:absolute;
+	width:290px;
+	height:65px;
+	border-radius: 0px 0px 0px 30px;
+	font-size:35px;
+	text-align:center;
+	background-color: #0447A8;
+}
+.v02030_alarm_content{
+	position: relative;
+	left:300px;
+	width:1195px;
+	height:65px;
+    background-color: #03284F;
+}
+#v02030_select{
+	position: absolute;
+	left:1420px;
+	top:1160px;
+	width: 300px;
+	display: none;
+}
+.v02030_select_start {
+	font-size: 15px;
+	background-color: #03284F;
+}
+.v02030_select_clear{
+	font-size: 15px;
+	background-color: #03284F;
+}

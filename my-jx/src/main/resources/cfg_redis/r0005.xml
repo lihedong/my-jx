@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<item label="网络质量--各项占比" datasource="ips">
+	<fields>
+		<field name="start_time" label="开始时间" />
+		<field name="lte_jamcell_rate" label="拥塞小区占比(4G)" unit="%"/>
+		<field name="lte_badcell_rate" label="最差小区占比(4G)" unit="%"/>
+		<field name="wireless_fail_rate" label="无线拥塞率(2G)" unit="%"/>
+		<field name="mme_succ_rate" label="MME附着成功率(4G)" unit="%"/>
+		<field name="dns_parse_rate" label="DNS系统解析成功率" unit="%"/>
+		<field name="addr_use_rate" label="地址池利用率" unit="%"/>
+		<field name="broadband_use_rate" label="带宽利用率" unit="%"/>
+	</fields>
+	<select>
+	    <![CDATA[
+	    select to_char(start_time, 'yyyy-mm-dd hh24:mi:ss') start_time,
+	       lte_jamcell_rate,
+	       lte_badcell_rate,
+	       wireless_fail_rate,
+	       mme_succ_rate,
+	       dns_parse_rate,
+	       addr_use_rate,
+	       broadband_use_rate
+	  from pro_network_quality
+	    ]]>
+	</select>
+</item>

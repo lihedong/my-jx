@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<item label="应急资源统计" datasource="ips">
+	<fields>
+		<field name="start_time" label="开始时间" />
+		<field name="company" label="代维公司" />
+		<field name="phones" label="移动终端" />
+		<field name="yiqi" label="仪器仪表" />
+		<field name="youji" label="油机" />
+		<field name="cars" label="车辆" />
+		<field name="users" label="人员数量" />
+	</fields>
+	<select>
+	<![CDATA[
+				select to_char(start_time, 'yyyy-mm-dd hh24:mi') start_time,
+			   company,
+			   phones,
+			   yiqi,
+			   youji,
+			   cars,
+			   users
+		  from app7_resources  
+	]]>
+	</select>
+</item>

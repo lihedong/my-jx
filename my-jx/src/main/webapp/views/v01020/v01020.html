@@ -1,0 +1,117 @@
+<!-- 网络质量 -->
+<div class="v01020" id="v01020">
+	<label class="v01020-title">质量</label>
+	
+	<!-- 环形图 -->
+	<div class="v01020-ring-div">
+		<!-- 4G拥塞小区占比 -->
+		<div class="v01020-ring-loc1">
+			<div class="v01020-out-circle">
+			</div>
+			<div class="v01020-circle-big">
+			</div>
+			<div id="circle1-annimate-value" class="v01020-circle-annimate"></div>
+			<div class="circle-numDiv"><label id="circle-annimate-num"></label></div>
+			<label class="v01020-subtitle">4G拥塞</label>
+			<label class="v01020-subtitle">小区数</label>
+		</div>
+		
+		<!-- 4G最差小区占比 -->
+		<div class="v01020-ring-loc2">
+			<div class="v01020-out-circle">
+			</div>
+			<div class="v01020-circle-big">
+			</div>
+			<div id="circle2-annimate-value" class="v01020-circle-annimate"></div>
+			<div class="circle-numDiv"><label id="circle-annimate-num1"></label></div>
+			<label class="v01020-subtitle">4G最差</label>
+			<label class="v01020-subtitle">小区占比(%)</label>
+		</div>
+		
+		<!-- 2G高质差小区占比 -->
+		<div class="v01020-ring-loc3">
+			<div class="v01020-out-circle">
+			</div>
+			<div class="v01020-circle-big">
+			</div>
+			<div id="circle3-annimate-value" class="v01020-circle-annimate"></div>
+			<div class="circle-numDiv"><label id="circle-annimate-num2"></label></div>
+			<label class="v01020-subtitle">2G无线网络</label>
+			<label class="v01020-subtitle">利用率(%)</label>
+		</div>
+		
+		<!-- 4GMME附着成功率 -->
+		<div class="v01020-ring-loc4">
+			<div class="v01020-out-circle">
+			</div>
+			<div class="v01020-circle-big">
+			</div>
+			<div id="circle4-annimate-value" class="v01020-circle-annimate"></div>
+			<div class="circle-numDiv"><label id="circle-annimate-num3"></label></div>
+			<label class="v01020-subtitle">4GMME</label>
+			<label class="v01020-subtitle">附着成功率(%)</label>
+		</div>
+	</div>
+	
+	<!-- 雷达图 -->
+	<div class="v01020_radarBg"></div>
+	<div class="v01020-radar-div">
+		<div style="width: 100%;height: 100%;">
+			<svg style="width: 100%;height: 100%;">
+		      <defs>
+		        <radialGradient id="grad1" cx="50%" cy="50%">
+		          <stop offset="20%" style="stop-color:rgb(0,255,0);stop-opacity:0"/>
+		          <stop offset="40%" style="stop-color:rgb(0,255,0);stop-opacity:.6"/>
+		          <stop offset="100%" style="stop-color:rgb(0,255,0);stop-opacity:1"/>
+		        </radialGradient>
+		        <radialGradient id="grad2">
+		          <stop offset="20%" style="stop-color:rgb(255,255,0);stop-opacity:.2" />
+		          <stop offset="60%" style="stop-color:rgb(255,255,0);stop-opacity:.6" />
+		          <stop offset="100%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+		        </radialGradient>
+		        <radialGradient id="grad3">
+		          <stop offset="20%" style="stop-color:rgb(255,0,0);stop-opacity:.3"/>
+		          <stop offset="60%" style="stop-color:rgb(255,0,0);stop-opacity:.6" />
+		          <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:.9" />
+		        </radialGradient>
+		      </defs>
+ 		      <circle r="270" cx="358" cy="305" style="stroke:#00ff00;fill:url(#grad1);fill-opacity:.5;stroke-width:2;"></circle><!--stroke:#00ff00;fill:url(#grad1); -->
+		      <circle r="180" cx="358" cy="305" style="stroke:#ffff00;fill:url(#grad2);fill-opacity:.7;stroke-width:2;"></circle><!--fill:url(#grad2); -->
+		      <circle r="80" cx="358" cy="305" style="stroke:#ff0000;fill:#D34834;fill:#A5280F;stroke-width:2;"></circle><!--fill:url(#grad3);fill-opacity:.7; -->
+		    </svg>
+		</div>
+<!-- 		<div style="position:absolute;left:350px;top:228px;width:8px;height:8px;border-radius:14px;background: #ff0000;border:2px solid #ffffff;transform:rotate(0deg);-webkit-transform-origin:0px 0px;"></div> -->
+		<!-- 打点 -->
+		<div id="radar" style="width:100%;height:100%;position:absolute;left:0px;top:0px;"></div>
+	    <div class="round w1">
+	    	<div class="line roundMove"></div>
+	    </div>
+	</div>
+	
+	<!-- 网元数 -->
+	<div class="v01020-net-scale">
+	   <span>网元数:</span>
+	   <span id="v01020-net-fault"></span>
+	   <span id="v01020-net-split">/</span>
+	   <span id="v01020-net-normal"></span>
+	</div>
+	
+	<!-- DNS解析成功率、地址池利用率、宽带利用率 -->
+	<div class="v01020-bottom-div">
+		<div class="v01020-bottom-subdiv v01020-left-100">
+			<label class="v01020-subtitle">DNS解析成功率</label>
+			<div class="v01020-num-div"><label id="v01020-dns" class="v01020-num-scroll"></label></div>
+		</div>
+		<div class="v01020-bottom-subdiv v01020-left-412">
+			<label class="v01020-subtitle">地址池利用率</label>
+			<div class="v01020-num-div"><label id="v01020-addr" class="v01020-num-scroll"></label></div>
+		</div>
+		<div class="v01020-bottom-subdiv v01020-left-724">
+			<label class="v01020-subtitle">宽带利用率</label>
+			<div class="v01020-num-div"><label id="v01020-band" class="v01020-num-scroll"></label></div>
+		</div>
+	</div>
+	<div class="v01020_startTimeDiv">
+          <span>截止时间:&nbsp;&nbsp;</span><span id="v01020_startTime"></span>
+    </div>
+</div>

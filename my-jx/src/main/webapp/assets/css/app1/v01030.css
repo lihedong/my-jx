@@ -1,0 +1,491 @@
+#v01030 {
+	position: absolute;
+	top: 51px;
+	left: 1769px;
+	width: 1265px;
+	height: 1136px;
+}
+
+.v01030_mytitle {
+	color: #fff;
+	font-size: 48px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 81px;
+}
+
+.v01030_title {
+	color: #fff;
+	font-size: 36px;
+	font-weight: bold;
+	text-shadow: 5px 5px 2px #000;
+}
+
+#volte_title {
+	position: absolute;
+	top: 135px;
+	left: 47px;
+	text-align: center;
+}
+
+.volte_value {
+	position: absolute;
+    top: 217px;
+    left: 35px;
+    height: 140px;
+    width: 215px;
+}
+
+#kd_title {
+	position: absolute;
+	top: 138px;
+	left: 1104px;
+}
+
+.kd_value {
+	position: absolute;
+    left: 1009px;
+    top: 220px;
+    height: 140px;
+    width: 215px;
+}
+
+.gsm_value {
+	position: absolute;
+	left: 320px;
+	top: 163px;
+	height: 140px;
+	width: 215px;
+}
+
+.td_value {
+	position: absolute;
+	left: 726px;
+	top: 166px;
+	height: 140px;
+	width: 215px;
+}
+
+.lte_value {
+	position: absolute;
+    left: 531px;
+    top: 36px;
+    height: 140px;
+    width: 215px;
+}
+
+.value_title {
+	font-size: 26px;
+	margin: 0 0 0 0px;
+	text-align: center;
+}
+
+.value_number {
+	font-size: 30px;
+	font-family: 'lcdnum';
+	margin: 0 0 0 0px;
+	text-align: center;
+	color: #FFFF00;
+}
+
+#volte_user_rate_img, #broadband_user_rate_img {
+	position: absolute;
+	left: 185px;
+	top: 67px;
+}
+
+#gsm_user_rate_img, #lte_user_rate_img, #td_user_rate_img,
+	#gsm_user_rate_img1, #lte_user_rate_img1, #td_user_rate_img1 {
+	position: absolute;
+	left: 175px;
+	top: 110px;
+}
+
+#dx_rate_img {
+	position: absolute;
+	left: 198px;
+	top: 71px;
+}
+
+.up_img {
+	width: 36px;
+	height: 36px;
+	background-repeat: no-repeat;
+	background-image: url(../../images/v01030/up.png);
+}
+
+.down_img {
+	width: 36px;
+	height: 128px;
+	background-image: url(../../images/v01030/down.png);
+	background-repeat: no-repeat;
+}
+
+.reduced_value {
+	position: absolute;
+	left: 85px;
+	top: 70px;
+	font-size: 30px;
+	font-family: 'lcdnum';
+	margin: 0 0 0 0px;
+	text-align: center;
+	color: #FFFF00;
+}
+
+.mycarousel-control {
+	position: absolute;
+	left: 367px;
+	top: 10px;
+	display: none;
+}
+
+.cleft {
+	position: absolute;
+	top: 5px;
+	left: 700px;
+}
+
+.cmiddle {
+	position: absolute;
+	display: block;
+	top: 0px;
+	left: 770px;
+}
+
+.cright {
+	position: absolute;
+	top: 5px;
+	left: 850px;
+}
+
+.mycarousel-control2 {
+	position: absolute;
+	left: 372px;
+	top: 24px;
+	display: none;
+}
+
+.cleft2 {
+	position: absolute;
+	top: 25px;
+	left: 700px;
+}
+
+.cmiddle2 {
+	position: absolute;
+	display: block;
+	top: 20px;
+	left: 770px;
+}
+
+.cright2 {
+	position: absolute;
+	top: 25px;
+	left: 850px;
+}
+
+#hwlj_title {
+	position: absolute;
+	left: 872px;
+	top: 0px;
+}
+
+#lllj_title {
+	position: absolute;
+	left: 872px;
+	top: 0px;
+}
+
+#hw_chart {
+	position: absolute;
+	width: 900px;
+	height: 520px;
+}
+
+#hwlj_chart {
+	position: absolute;
+	width: 420px;
+	height: 350px;
+	left: 850px;
+	top: 70px;
+}
+
+#ll_chart {
+	position: absolute;
+	width: 900px;
+	height: 520px;
+}
+
+#lllj_chart {
+	position: absolute;
+	width: 420px;
+	height: 350px;
+	left: 850px;
+	top: 80px;
+}
+
+#dx_chart {
+	position: absolute;
+	width: 1000px;
+	height: 520px;
+}
+
+#dx_img {
+	position: absolute;
+	left: 979px;
+	top: 240px;
+	width: 275px;
+	height: 275px;
+	background-image: url(../../images/v01030/dx.png);
+	background-size: 100%;
+}
+
+#dx_value {
+	position: absolute;
+	left: 1000px;
+	top: 128px;
+	width: 233px;
+	height: 375px;
+}
+
+#dx_value p:first-child {
+	position: relative;
+	top: 10px;
+	font-size: 30px;
+}
+
+#dx_title {
+	position: absolute;
+	bottom: 0px;
+	left: 8px;
+	font-size: 30px;
+}
+
+#moment_sms_rate {
+	position: absolute;
+	right: 37px;
+	top: 67px;
+	font-size: 30px;
+	margin: 0 0 0 0px;
+	text-align: center;
+	font-family: 'lcdnum';
+	color: #FFFF00;
+	height: 43px;
+	overflow: hidden;
+}
+
+.chart_value {
+	font-size: 30px;
+	margin: 0 0 0 0px;
+	text-align: center;
+	font-family: 'lcdnum';
+	color: #FFFF00;
+	height: 43px;
+	overflow: hidden;
+}
+
+#accu_sms_num {
+	height: 45px;
+	overflow: hidden;
+}
+
+.v01030_chart_valueDiv {
+	position: absolute;
+	width: 161px;
+	text-align: center;
+	top: 239px;
+	left: 37px;
+}
+
+#gsm_hwlj_title {
+	position: absolute;
+	top: 422px;
+	left: 970px;
+}
+
+#td_hwlj_title {
+	position: absolute;
+	top: 464px;
+	left: 970px;
+}
+
+#gsm_hwlj_value {
+	position: absolute;
+	top: 417px;
+	left: 1020px;
+}
+
+#td_hwlj_value {
+	position: absolute;
+	top: 461px;
+	left: 1020px;
+}
+
+#gsm_lllj_title {
+	position: absolute;
+	top: 409px;
+	left: 970px;
+}
+
+#td_lllj_title {
+	position: absolute;
+	top: 450px;
+	left: 970px;
+}
+
+#lte_lllj_title {
+	position: absolute;
+	top: 492px;
+	left: 970px;
+}
+
+#gsm_lllj_value {
+	position: absolute;
+	top: 403px;
+	left: 1020px;
+}
+
+#td_lllj_value {
+	position: absolute;
+	top: 446px;
+	left: 1020px;
+}
+
+#lte_lllj_value {
+	position: absolute;
+	top: 490px;
+	left: 1020px;
+}
+
+.v01030bg {
+	background-image: url(../../images/app1/v01030_bg.png);
+	background-repeat: no-repeat;
+	background-position: -11px 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.volte_value div:first-child, .kd_value div:first-child, .gsm_value div:first-child,
+	.td_value div:first-child, .lte_value div:first-child {
+	width: 69px;
+	height: 91px;
+	position: absolute;
+	left: 10px;
+	font-size: 22px;
+	top: 29px;
+}
+
+.volte_value div:first-child span:last-child, .kd_value div:first-child span:last-child,
+	.gsm_value div:first-child span:last-child, .td_value div:first-child span:last-child,
+	.lte_value div:first-child span:last-child {
+	position: absolute;
+	left: -24px;
+}
+
+.volte_value div:first-child span, .kd_value div:first-child span,
+	.gsm_value div:first-child span, .td_value div:first-child span,
+	.lte_value div:first-child span {
+	margin-bottom: 10px;
+}
+
+.volte_value div:nth-child(2), .kd_value div:nth-child(2), .gsm_value div:nth-child(2),
+	.td_value div:nth-child(2), .lte_value div:nth-child(2) {
+	width: 200px;
+	height: 91px;
+	position: absolute;
+	top: 29px;
+	left: 64px;
+	font-size: 28px;
+	color: #FFFF00;
+	font-family: 'lcdnum';
+	z-index: 10;
+}
+
+.volte_value div:nth-child(2) span, .kd_value div:nth-child(2) span,
+	.gsm_value div:nth-child(2) span, .td_value div:nth-child(2) span,
+	.lte_value div:nth-child(2) span {
+	margin-bottom: 10px;
+}
+
+.volte_value div span, .kd_value div span, .gsm_value div span,
+	.td_value div span, .lte_value div span {
+	display: block;
+	line-height: 28px;
+	overflow: hidden;
+	height: 31px;
+}
+
+.v01030_webType {
+	position: absolute;
+	left: 494px;
+	top: 220px;
+	width: 260px;
+	height: 160px;
+	font-size: 35px;
+}
+
+.v01030_webType span:first-child {
+	position: absolute;
+	left: 0px;
+	top: 83px;
+}
+
+.v01030_webType span:nth-child(2) {
+	position: absolute;
+	right: 0px;
+	top: 83px;
+}
+
+.v01030_webType span:last-child {
+	position: absolute;
+	left: 107px;
+	top: 10px;
+}
+
+.wlan_value {
+	position: absolute;
+	top: 217px;
+	left: 53px;
+	height: 140px;
+	width: 215px;
+}
+
+.hitv_value {
+	position: absolute;
+	left: 1025px;
+	top: 220px;
+	height: 140px;
+	width: 215px;
+}
+
+.wlan_value div:first-child, .hitv_value div:first-child {
+	width: 59px;
+	height: 91px;
+	position: absolute;
+	top: 29px;
+	left: 10px;
+	font-size: 24px;
+	top: 29px;
+	line-height: 79px;
+}
+
+.wlan_value div:last-child, .hitv_value div:last-child {
+	width: 170px;
+	height: 38px;
+	position: absolute;
+	top: 47px;
+	left: 64px;
+	font-size: 30px;
+	color: #FFFF00;
+	font-family: 'lcdnum';
+	line-height: 38px;
+	overflow: hidden;
+}
+
+.v01030_startTimeDiv {
+	position: absolute;
+	bottom: 19px;
+	left: 502px;
+	color: #FFFF00;
+	font-size: 22px;
+}
